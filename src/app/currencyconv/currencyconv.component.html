@@ -1,0 +1,11 @@
+<table style=" margin:20px;">
+    <tr>
+    <select style="float :left; margin-right: 20px;" (change)="selectChangeHandler($event)">
+        <option value="£">£</option>
+        <option value="$">$</option>
+        <option value="€">€</option>
+    </select>
+    <input placeholder="Enter an amount to convert"  style="float :right;" #currencyToConv>
+
+    </tr>
+</table>

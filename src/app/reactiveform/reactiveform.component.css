@@ -1,0 +1,10 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap";
+.formcss{
+    padding:20px;
+
+}
+.inputholder{
+    margin:20px;
+
+}

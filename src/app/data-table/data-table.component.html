@@ -1,0 +1,21 @@
+<div class="mainAffi">
+    <div *ngIf="username===undefined">
+        <input autofocus (keyup.enter)="OnAddUsername(titleInput.value)" placeholder="Username" class="textzone" type="text"  #titleInput> 
+        <button id="Buttons" mat-button (click)="OnAddUsername(titleInput.value)" >Connect</button>
+    </div>
+    <div *ngIf="username!=undefined">
+        <span style="background:rgb(191, 255, 200); border: 2px solid rgb(0, 0, 0); border-radius: 10px; padding:5px;">{{username}} is connected.</span> 
+        <div class="mainAffi">
+            <input (keyup.enter)="OnAddFriend(friendadd.value); friendadd.value=''" placeholder="Username of friend" class="textzone" type="text"  #friendadd> 
+            <button id="Buttons" mat-button (click)="OnAddFriend(friendadd.value); friendadd.value=''" >Add Friend</button>
+            <div *ngFor="let data of getFriends()[0]" > {{data[0]}}<button id="Buttons" (click)="DefineData(data)">
+                Open/close chat
+            </button>
+                <div *ngIf="currentmsgs[0] === data[0]">
+                    <app-popup-messages [DataFriend]="data" [DataUser]="username"></app-popup-messages>
+                </div>
+            </div>
+            <button id="Buttons" mat-button (click)="username=undefined">Disconnect</button>
+        </div>
+    </div>
+</div>

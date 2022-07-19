@@ -1,0 +1,40 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap";
+.boxTodo{
+    min-width: 100px;
+    min-height: 50px;
+    max-width: 260px;
+    border:1px solid rgba(255, 0, 0, 0.63);
+    padding: 10px;
+    margin:10px;
+    float:left;
+    background-color: rgb(230, 199, 159);
+    
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    display:block;
+
+}
+input[type=checkbox]:checked + label {
+    text-decoration: line-through;
+  } /*This is the MDN spec for doing this*/
+.buttonDelete{
+    background-color: rgb(255, 88, 88);
+    float:right;
+
+}
+.textzone{
+    margin:10px;
+    float:center;
+
+}
+.divPages{
+   bottom : 20px;
+    text-align: center;
+   
+  margin: 0 auto;
+  display: inline-block;
+    vertical-align: bottom;
+}

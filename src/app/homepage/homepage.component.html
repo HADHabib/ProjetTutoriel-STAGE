@@ -1,0 +1,5 @@
+<div *ngFor="let dataSend of WeatherData | paginate: { itemsPerPage: 10, currentPage: pages }" >
+    <app-weathercomponent  [data]="dataSend" ></app-weathercomponent>
+    
+</div>
+<pagination-controls class="pagination"(pageChange)="pages = $event" [autoHide]="true"></pagination-controls>

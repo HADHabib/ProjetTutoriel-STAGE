@@ -1,0 +1,17 @@
+<div *ngFor="let dataA of ForecastData">
+    <div id="divWeatherMain" > 
+        <div *ngIf="dataA.isDay" class="weatherWidgetRow">
+            <i class="fas fa-3x fa-sun sun"></i>  
+        </div>   
+        <div *ngIf="!dataA.isDay" class="weatherWidgetRow">
+            <i class="fas fa-3x fa-moon moon"></i>  
+        </div>   
+        <div class="weatherWidgetRow cloudDiv">
+            <i class="fas fa-cloud fa-3x cloud"></i>
+        </div>
+        <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{dataA.temp_celcius}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">{{dataA.temp_min}}° / {{dataA.temp_max}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{dataA.temp_feels_like}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{dataA.main.humidity}}%</div>
+    </div>
+</div>

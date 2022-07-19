@@ -1,0 +1,18 @@
+<div>
+    <div class="leslistes" *ngFor='let listetodos of todos | paginate: { itemsPerPage: 10, currentPage: pages }'>
+      
+        <div class="boxTodo">
+        <div class="listeS"> {{listetodos.id}}
+       <button class="buttonDelete" (click)="removeTodo(listetodos)"><i class="bi bi-trash-fill"></i></button></div>
+          <ul class="labOfText" class="toDoCross"  *ngFor='let afaire of listetodos.listetodo'>
+             <input type="checkbox" class="custom-control-input"><label class="labOfText" >&nbsp;{{afaire}}</label>
+          </ul>
+          <input class="textzone" type="text"  #titleInput> 
+          <button><i class="bi bi-plus-circle" (click)="OnClickAdd(listetodos, titleInput.value)"></i></button>
+        </div>
+     
+    </div>
+    <div class="divPages">
+<pagination-controls (pageChange)="pages = $event"></pagination-controls>
+</div>
+</div>

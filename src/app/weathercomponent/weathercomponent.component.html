@@ -1,0 +1,18 @@
+<div >
+    <div (click)="openDialog(data)"id="divWeatherMain" appHighlight [data]="data" > 
+        <div *ngIf="data.isDay" class="weatherWidgetRow">
+            <i class="fas fa-3x fa-sun sun"></i>  
+        </div>   
+        <div *ngIf="!data.isDay" class="weatherWidgetRow">
+            <i class="fas fa-3x fa-moon moon"></i>  
+        </div>   
+        <div class="weatherWidgetRow cloudDiv">
+            <i class="fas fa-cloud fa-3x cloud"></i>
+        </div>
+        <div class="weatherWidgetRow" style="font-size: 32px;margin-top: 5px;">{{data.temp_celcius}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">{{data.temp_min}}° / {{data.temp_max}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Feels Like: {{data.temp_feels_like}}°</div>
+        <div class="weatherWidgetRow" style="font-size: 25px;margin-top: 10px;">{{data.name}}</div>
+        <div class="weatherWidgetRow" style="font-size: 12px;">Humidity: {{data.main.humidity}}%</div>
+    </div>
+</div>

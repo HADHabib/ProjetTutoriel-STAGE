@@ -1,0 +1,20 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap";
+
+button{
+    height:40px;
+    width:40px;
+    font-size: 30px;
+    text-align: center;
+    justify-content:center;
+    align-items:center;
+
+}
+.sidebar{
+    padding: 20px;
+    display: grid;
+    grid-row-gap: 15px;
+    vertical-align: middle;
+    justify-content:center;
+    align-items:center;
+}

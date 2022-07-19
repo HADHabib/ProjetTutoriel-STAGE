@@ -1,0 +1,8 @@
+<div  mat-dialog-content>
+    <div>
+        <input autofocus (keyup.enter)="onNoClick(titleInput.value)" placeholder="Enter city name" class="textzone" type="text"  #titleInput> 
+    </div>
+    <div class="buttonPos"  mat-dialog-actions>
+        <button mat-button (click)="onNoClick(titleInput.value)" >Fetch Weather</button>
+    </div>
+</div>

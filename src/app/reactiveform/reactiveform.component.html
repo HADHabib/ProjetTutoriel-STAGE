@@ -1,0 +1,34 @@
+<form class="formcss" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="inputholder">
+      <label for="first-name">Name: </label>
+      <input id="first-name" type="text" formControlName="Name" style="margin-left: 10px;">
+      <div *ngIf="profileForm.controls['Name'].invalid && (profileForm.controls['Name'].dirty || profileForm.controls['Name'].touched)" style="color:red;">
+        <span  class="text-danger"> <i class="bi bi-exclamation-triangle"></i> Please enter username</span>
+      </div>
+    </div>
+    <div class="inputholder">
+      <label for="last-name">Temp : </label>
+      <input id="last-name" type="text" formControlName="Temp" style="margin-left: 10px;">
+      <div *ngIf="profileForm.controls['Temp'].invalid && (profileForm.controls['Temp'].dirty || profileForm.controls['Temp'].touched)" style="color:red;">
+        <span  class="text-danger"> <i class="bi bi-exclamation-triangle"></i> Please enter valid temperature</span>
+      </div>
+    </div>
+    <div class="inputholder">
+      <label for="feels-like">Feels like : </label>
+      <input id="feels-like" type="text" formControlName="FeelsLike" style="margin-left: 10px;" name="feels-like">
+   
+      <div *ngIf="profileForm.controls['FeelsLike'].invalid && (profileForm.controls['FeelsLike'].dirty || profileForm.controls['FeelsLike'].touched)" style="color:red;">
+        <i class="bi bi-exclamation-triangle"></i>  Please enter valid temperature
+      </div>
+    </div>
+    <div class="inputholder">      
+      <label for="humidity">Humidity : </label>
+      <input id="humidity" type="text" formControlName="Humidity" style="margin-left: 10px;">
+      <div *ngIf="(profileForm.controls['Humidity'].invalid) && (profileForm.controls['Humidity'].dirty || profileForm.controls['Humidity'].touched)" style="color:red;">
+        <span  class="text-danger"><i class="bi bi-exclamation-triangle"></i> Please enter valid humidity</span>
+      </div>
+    </div>
+   
+    <button type="submit" style="margin-left: 15px;"[disabled]="!profileForm.valid">Submit</button>
+  </form>
+ 
