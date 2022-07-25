@@ -1,11 +1,65 @@
-<table style=" margin:20px;">
-    <tr>
-    <select style="float :left; margin-right: 20px;" (change)="selectChangeHandler($event)">
-        <option value="£">£</option>
-        <option value="$">$</option>
-        <option value="€">€</option>
-    </select>
-    <input placeholder="Enter an amount to convert"  style="float :right;" #currencyToConv>
+<div class="container">
+    <div class="draganddrop" appDragDropFileUpload
+    (fileDropped)="onFileSelected($event)" (click)="fileUpload.click()" >
+        <div class="info">
+            <div style="display: inline-block; text-align:center; ">
+                <i class="bi bi-upload" style="font-size: 3rem;  text-align: center; "></i>
+                <br>
+                <span>Drag and drop file here</span>
+                <br>
+                <span>OR</span>
+                <br>
+                <label for="input" class="selectfile">
+                    Browse for file
+                    <input id="input" type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div  cdkDropList
+    [cdkDropListData]="filelist"
+    (cdkDropListDropped)="drop($event)">
+        <ng-container *ngFor="let data of filelist; let i = index"  >
+            <div class="list" cdkDrag >
+                <span style="float:left; margin:5px 5px 5px 5px;"> {{i+1}}</span>
+                <table style="margin-bottom: 15px;  margin: 0 auto;">
+                    
+                    <td>
+                        <img class="img" src="{{ data.filesrc}}">
+                    </td>
+                    <td>
+                        {{data.filename || "No file uploaded yet."}}
+                    </td>
+                    <td>
+                        <a href="{{data.link}}">{{data.link}}</a>
+                    </td>
+                    <td>
+                        <button [disabled]="i===0" (click)="swapup(i)"><i class="bi bi-chevron-up"></i></button>
+                    </td>
+                    <td>
+                        <button [disabled]="i===filelist.length-1" (click)="swapdown(i)"><i class="bi bi-chevron-down"></i></button>
+                    </td>
+                    <td>
+                        <button (click)="remove(i)"><i class="bi bi-trash3"></i></button>
+                    </td>
+                    <td>
+                        <label for="update" class="updatefile">
+                            Update
+                            <input id="update"type="file" class="file-input" (change)="update($event, filelist.indexOf(data))" #fileupdate>
+                        </label>
+                    </td>
+                </table>
+                <div class="progress">
 
-    </tr>
-</table>
+                    <mat-progress-bar class="progress-bar" mode="determinate"
+                                    [value]="data.uploadprogress" *ngIf="data.uploadprogress">
+                
+                    </mat-progress-bar>
+
+                </div>
+            </div>
+        </ng-container>
+    
+    </div>
+    
+</div>

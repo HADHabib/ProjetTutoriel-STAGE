@@ -24,14 +24,22 @@ import { PopupAddWeatherComponent } from './popup-add-weather/popup-add-weather.
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { PopupErrorCityComponent } from './popup-error-city/popup-error-city.component';
 import { InputDataComponent } from './page3/input-data/input-data.component';
-import { Page4Component } from './page4/page4.component';
-import { InputDataComponent2 } from './page4/input-data/input-data.component';
+import { InputExampleComponent } from './input-example/input-example.component';
+import { InputGenericComponent } from './input-example/input-generic/input-generic.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DataStorageService } from './data-storage.service';
 import { PopupMessagesComponent } from './data-table/popup-messages/popup-messages.component';
 import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
+import {MatIconModule} from '@angular/material/icon';
+import { DragdropfileDirective } from './currencyconv/dragdropfile.directive';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { IncidentExampleComponent } from './incident-example/incident-example.component';
+import { IncidentNumberComponent } from './incident-example/incident-number/incident-number.component';
+import { IncidentInfoComponent } from './incident-example/incident-info/incident-info.component';
+import { ImagedirectiveDirective } from './incident-example/imagedirective.directive'; 
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -47,12 +55,18 @@ import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
     WeatherForecastComponent,
     PopupErrorCityComponent,
     InputDataComponent,
-    Page4Component,
-    InputDataComponent2,
+    InputExampleComponent,
+    InputGenericComponent,
     ReactiveformComponent,
     DataTableComponent,
     PopupMessagesComponent,
     CurrencyconvComponent,
+    DragdropfileDirective,
+    IncidentExampleComponent,
+    IncidentNumberComponent,
+    IncidentInfoComponent,
+    ImagedirectiveDirective,
+    
   ],
   
   entryComponents:[PopupAddWeatherComponent],
@@ -73,8 +87,10 @@ import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
     MatCardModule,
     MatProgressBarModule,
     MatDialogModule,
-    MatProgressSpinnerModule
-   
+    MatProgressSpinnerModule,
+    MatIconModule,
+    DragDropModule,
+    AdminModule
 
       ],
   providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}, DataStorageService],

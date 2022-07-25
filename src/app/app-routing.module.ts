@@ -7,10 +7,12 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { Page3Component } from './page3/page3.component';
 import { Page2sidebarComponent } from './page2sidebar/page2sidebar.component';
 import { HomepagesidebarComponent } from './homepagesidebar/homepagesidebar.component';
-import { Page4Component } from './page4/page4.component';
+import { InputExampleComponent } from './input-example/input-example.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
+import { IncidentExampleComponent } from './incident-example/incident-example.component';
+import { TableComponent } from './admin/table/table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/homepage/(sidebarA:homepagesidebar)', pathMatch: 'full' },
@@ -24,10 +26,12 @@ const routes: Routes = [
     { path: '', component:HomepageComponent },
     {path:"homepagesidebar",component:HomepagesidebarComponent, outlet:"sidebarA"}
   ]},
-  {path:"page4",component:Page4Component},
+  {path:"page4",component:InputExampleComponent},
   {path:"reactiveform",component:ReactiveformComponent},
   {path:"datatable",component:DataTableComponent},
-  {path:"currency",component:CurrencyconvComponent}
+  {path:"currency",component:CurrencyconvComponent},
+  {path:"incident",component:IncidentExampleComponent},
+  {path:"table",component:TableComponent},
   
 ];
 @NgModule({

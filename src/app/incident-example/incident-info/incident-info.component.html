@@ -1,0 +1,43 @@
+<table class="main">
+    <tr class="side">
+        <td class="inside">
+            <span id="header">Date of decla.</span>
+            <br>
+            <span id="info">{{incidentInfo.date| date:'yyyy/MM/dd'}}</span>
+        </td>
+        <td class="inside">
+            <span id="header">Declarant's details</span>
+            <br>
+            <span id="info">{{incidentInfo.declaDetails}}</span>
+        </td>
+    </tr>
+    <tr class="side">
+        <td class="inside">
+            <span id="header">Risk category</span>
+            <br>
+            <span id="info">{{incidentInfo.riskCat}}</span>
+        </td>
+        <td class="inside">
+            <span id="header">Risk sub category</span>
+            <br>
+            <span id="info">{{incidentInfo.riskSubCat}}</span>
+        </td>
+    </tr>
+    <tr class="side">
+        <td class="inside">
+            <span id="header">Risk</span>
+            <br>
+            <span id="info">{{incidentInfo.risk}}</span>
+        </td>
+        <td class="inside">
+            <span id="header">Workflow</span>
+            <br>
+            <ng-container *ngFor="let workflow of incidentInfo.workflow">
+                <span style="color:rgb(127, 182, 214); font-weight:bold;">&#8226;</span>
+                 <span style="font-weight:bold;color:rgb(127, 182, 214);" id="info">{{workflow}}</span>
+                <br>
+            </ng-container>
+            
+        </td>
+    </tr>
+</table>

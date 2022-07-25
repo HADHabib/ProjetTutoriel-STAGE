@@ -1,0 +1,14 @@
+
+<div class="card" *ngFor="let incident of listIncident">
+    <app-incident-number [incidentInput]="incident"></app-incident-number>
+    <div id="status">
+         <div [ngClass]="{'open':incident.status==='Open', 'closed':incident.status==='Closed'}">
+            {{incident.status}}
+        </div>
+    </div>
+    <app-incident-info [incidentInfo]="incident"></app-incident-info>
+
+    
+</div>
+
+

@@ -1,0 +1,5 @@
+
+<span id="nameInput">
+    {{dataInput.label}}
+</span>
+<input class="input" type="{{dataInput.type}}" [(ngModel)]="modelInput" (ngModelChange)="sendUpdatedInput()"/>

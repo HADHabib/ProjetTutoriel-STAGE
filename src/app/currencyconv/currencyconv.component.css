@@ -1,0 +1,96 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap";
+
+.container{
+    margin-top:30px;
+    margin-left: auto;
+    margin-right: auto;
+    height:500px;
+    width:600px;
+    overflow-y:auto;
+    overflow-x: hidden;
+}
+.draganddrop{
+   
+    
+    background:white;
+
+    border:1px dashed black;
+    height:300px;
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+
+}
+.info{
+    width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-wrap: wrap;
+}
+input{
+    display: none;
+  }
+  
+.selectfile:hover{
+    background-color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+.selectfile{
+    border:1px dashed red; 
+    padding:4px; 
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(255, 97, 97);
+}
+
+.progress-bar{
+    height:15px;
+}
+
+.list{
+    display: inline-block;
+     vertical-align: center;
+     margin-top:10px;
+    width:580px;
+    margin-left: auto;
+    margin-right: auto;
+  
+     background:white;
+     border:1px dashed black;
+     padding:5px;
+}
+
+.img{
+    height: 30px;
+    width:30px;
+    float: left;
+}
+button{
+    border:0px;
+    background:white;
+}
+.updatefile:hover{
+    background-color:rgb(80, 80, 80);
+    cursor: pointer;
+}
+.updatefile{
+    border:1px dashed rgb(0, 0, 0); 
+    padding:4px; 
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(185, 185, 185);
+    float: right;
+}
+td{
+    vertical-align: middle;
+    padding: 2px 5px 2px 5px;
+
+}
+td > * {
+    vertical-align : middle;
+    
+}

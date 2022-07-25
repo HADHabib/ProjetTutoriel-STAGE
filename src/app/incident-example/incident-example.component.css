@@ -1,0 +1,45 @@
+div#status{
+    width:340px;
+    height:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:white;
+}
+.open{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30%;
+    height:100%;
+    margin-top:-20px;
+    border-radius: 25px;
+    border: 2px solid white;
+    padding:2px;
+    background:rgb(51, 192, 51);
+    color:white;
+   
+}
+.closed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30%;
+    height:100%;
+    margin-top:-20px;
+    border-radius: 25px;
+    border: 2px solid white;
+    padding:2px;
+    background:rgb(182, 47, 47);
+    color:white;
+   
+}
+
+.card{
+    overflow:hidden;
+    border-collapse: separate; 
+    border-radius:10px;
+    margin:10px;
+    float:left;
+    min-height:420px;
+}
