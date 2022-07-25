@@ -76,7 +76,7 @@
                 <td id="Header">Humidity</td>
             </tr>
             <tr>
-            <td id="noborder" colspan="2">Showing {{(pages-1)*numberEntries + 1}} to {{pages*numberEntries<= dataSearch.length ? pages*numberEntries : dataSearch.length }} of {{dataList.length}} entries</td>
+            <td id="noborder" colspan="2">Showing {{dataSearch.length!=0 ? (pages-1)*numberEntries + 1 : 0}} to {{pages*numberEntries<= dataSearch.length ? pages*numberEntries : dataSearch.length }} of {{dataSearch.length}} entries</td>
             <td id="noborder" colspan="2" style="text-align: right;"> 
                 <button [disabled]="pages === 1" (click)="changePage(pages-1)">Previous</button>
                 <button  [ngStyle]="{'background-color' : page===this.pages ? 'blue' : 'lightgrey'}" *ngFor="let page of listPages" (click)="changePage(page)" >{{page}}</button>
