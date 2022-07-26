@@ -40,6 +40,7 @@ import { IncidentNumberComponent } from './incident-example/incident-number/inci
 import { IncidentInfoComponent } from './incident-example/incident-info/incident-info.component';
 import { ImagedirectiveDirective } from './incident-example/imagedirective.directive'; 
 import { AdminModule } from './admin/admin.module';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { AdminModule } from './admin/admin.module';
     MatProgressSpinnerModule,
     MatIconModule,
     DragDropModule,
-    AdminModule
+    AdminModule,
+    NgChartsModule
 
       ],
   providers: [ {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}, DataStorageService],

@@ -13,7 +13,10 @@ import { DataTableComponent } from './data-table/data-table.component';
 import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
 import { IncidentExampleComponent } from './incident-example/incident-example.component';
 import { TableComponent } from './admin/table/table.component';
-
+import { CardsComponent } from './admin/cards/cards.component';
+import { AuthentificationComponent } from './admin/authentification/authentification.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { AuthentificationGuard } from './admin/authentification.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/homepage/(sidebarA:homepagesidebar)', pathMatch: 'full' },
   {path:"page3",component: Page3Component},
@@ -32,6 +35,9 @@ const routes: Routes = [
   {path:"currency",component:CurrencyconvComponent},
   {path:"incident",component:IncidentExampleComponent},
   {path:"table",component:TableComponent},
+  {path:"cards",component:CardsComponent},
+  {path:"auth",component:AuthentificationComponent},
+  {path:"admin",component:CardsComponent, canActivate:[AuthentificationGuard]}
   
 ];
 @NgModule({

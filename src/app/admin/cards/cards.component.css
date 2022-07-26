@@ -1,0 +1,14 @@
+.card{
+    min-width:300px;
+    min-height:300px;
+
+}
+.main{
+    margin:20px;
+    float:left;
+
+}
+.main:hover{
+    border:2px solid black;
+    margin:18px;
+}

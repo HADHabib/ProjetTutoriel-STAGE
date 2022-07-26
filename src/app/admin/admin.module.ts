@@ -6,17 +6,25 @@ import {TableModule} from 'primeng/table';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ToolbarModule} from 'primeng/toolbar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import {DialogModule} from 'primeng/dialog';
 import {ToastModule} from 'primeng/toast';
+import { CardsComponent } from './cards/cards.component';
+import { CardModule } from 'primeng/card';
+import { AuthentificationComponent } from './authentification/authentification.component';
+import { AdminComponent } from './admin/admin.component';
+import { NgChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     TableComponent,
-    StatusIndicatorComponent
+    StatusIndicatorComponent,
+    CardsComponent,
+    AuthentificationComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +36,10 @@ import {ToastModule} from 'primeng/toast';
     ToolbarModule,
     ConfirmDialogModule,
     DialogModule,
-    ToastModule
+    ToastModule,
+    CardModule,
+    ReactiveFormsModule,
+    NgChartsModule
   ],
   providers:[MessageService,ConfirmationService]
 })

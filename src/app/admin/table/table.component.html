@@ -3,7 +3,7 @@
         <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew(); newData=true;"></button>
     </p-toolbar>
     <p-table [columns]="cols" [value]="datalist" class="tablemain" sortMode="multiple" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]" #dt>
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  selectionMode="single" [rowsPerPageOptions]="[10,25,50]" #dt>
     <ng-template pTemplate="caption">
 		<div class="p-d-flex">
            
@@ -28,7 +28,7 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr>
+            <tr [pSelectableRow]="columns" (dblclick)="editProduct(rowData,datalist.indexOf(rowData))">
                 <td *ngFor="let col of columns">
                     <ng-container *ngIf="col.header==='Workflow';else showColStatus">
                         <app-status-indicator [status]="rowData[col.field]" ></app-status-indicator>

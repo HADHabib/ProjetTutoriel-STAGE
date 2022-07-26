@@ -1,0 +1,20 @@
+<div class="main" *ngFor="let data of datalist" >
+  <p-card class="card">
+      <ng-template pTemplate="header">
+        <div class="card-header flex align-items-center">
+          <span class="card-header-text">Card {{data}}</span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="content">
+        <canvas baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'">
+</canvas>
+
+      </ng-template>
+  </p-card>
+
+</div>
