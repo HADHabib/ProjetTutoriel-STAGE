@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageComponent } from './page.component';
+import { InputdataV2Component } from './inputdataV2.component';
 
-describe('PageComponent', () => {
-  let component: PageComponent;
-  let fixture: ComponentFixture<PageComponent>;
+describe('InputdataV2Component', () => {
+  let component: InputdataV2Component;
+  let fixture: ComponentFixture<InputdataV2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PageComponent ]
+      declarations: [ InputdataV2Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageComponent);
+    fixture = TestBed.createComponent(InputdataV2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

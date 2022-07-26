@@ -1,6 +1,6 @@
 export interface DataTableModel{
     type:string,
-    dateOfRequest:string,
+    dateOfRequest:Date,
     businessIssuer : string,
     departement : string,
     office : string,

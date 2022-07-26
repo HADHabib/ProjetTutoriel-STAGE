@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { dataType } from './dataType';
 import { dataList } from './list-dataType';
 @Component({
-  selector: 'app-page3',
-  templateUrl: './page3.component.html',
-  styleUrls: ['./page3.component.css']
+  selector: 'app-inputdataV2',
+  templateUrl: './inputdataV2.component.html',
+  styleUrls: ['./inputdataV2.component.css']
 })
-export class Page3Component implements OnInit {
+export class InputdataV2Component implements OnInit {
   inputs: dataType[]= dataList;
   constructor() { }
 
@@ -18,6 +18,7 @@ export class Page3Component implements OnInit {
   }else{
     this.inputs[index].value=newItem;
   }
+  console.log(this.inputs[index])
 
  }
 }

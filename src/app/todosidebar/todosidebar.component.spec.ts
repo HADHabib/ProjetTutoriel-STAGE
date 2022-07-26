@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CurrencyconvComponent } from './currencyconv.component';
+import { TodosidebarComponent } from './todosidebar.component';
 
-describe('CurrencyconvComponent', () => {
-  let component: CurrencyconvComponent;
-  let fixture: ComponentFixture<CurrencyconvComponent>;
+describe('TodosidebarComponent', () => {
+  let component: TodosidebarComponent;
+  let fixture: ComponentFixture<TodosidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CurrencyconvComponent ]
+      declarations: [ TodosidebarComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CurrencyconvComponent);
+    fixture = TestBed.createComponent(TodosidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

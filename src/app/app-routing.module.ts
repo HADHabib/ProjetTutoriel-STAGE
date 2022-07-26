@@ -1,38 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { Page2Component } from './page2/page2.component';
-import { PageComponent } from './page/page.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { Page3Component } from './page3/page3.component';
-import { Page2sidebarComponent } from './page2sidebar/page2sidebar.component';
-import { HomepagesidebarComponent } from './homepagesidebar/homepagesidebar.component';
+import { TodoComponent } from './todo/todo.component';
+import { WeathertableComponent } from './weathertable/weathertable.component';
+import { WeatherComponent } from './weather/weather.component';
+import { InputdataV2Component } from './inputdataV2/inputdataV2.component';
+import { TodosidebarComponent } from './todosidebar/todosidebar.component';
+import { WeathersiderbarComponent } from './weathersidebar/weathersidebar.component';
 import { InputExampleComponent } from './input-example/input-example.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
+import { MessagesComponent } from './data-table/data-table.component';
+import { DraganddropComponent } from './draganddrop/currencyconv.component';
 import { IncidentExampleComponent } from './incident-example/incident-example.component';
 import { TableComponent } from './admin/table/table.component';
 import { CardsComponent } from './admin/cards/cards.component';
 import { AuthentificationComponent } from './admin/authentification/authentification.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { AuthentificationGuard } from './admin/authentification.guard';
+
 const routes: Routes = [
   { path: '', redirectTo: '/homepage/(sidebarA:homepagesidebar)', pathMatch: 'full' },
-  {path:"page3",component: Page3Component},
-  {path:"page",component:PageComponent},
-  {path: "page2",children:[
-    { path: '', component:Page2Component },
-    {path:"page2sidebar",component:Page2sidebarComponent, outlet:"sidebarA"}
+  {path:"inputdataV2",component: InputdataV2Component},
+  {path:"weathertable",component:WeathertableComponent},
+  {path: "todo",children:[
+    { path: '', component:TodoComponent },
+    {path:"todosidebar",component:TodosidebarComponent, outlet:"sidebarA"}
   ]},
-  {path: "homepage",children:[
-    { path: '', component:HomepageComponent },
-    {path:"homepagesidebar",component:HomepagesidebarComponent, outlet:"sidebarA"}
+  {path: "weather",children:[
+    { path: '', component:WeatherComponent },
+    {path:"weathersidebar",component:WeathersiderbarComponent, outlet:"sidebarA"}
   ]},
-  {path:"page4",component:InputExampleComponent},
+  {path:"inputexampleV1",component:InputExampleComponent},
   {path:"reactiveform",component:ReactiveformComponent},
-  {path:"datatable",component:DataTableComponent},
-  {path:"currency",component:CurrencyconvComponent},
+  {path:"messagerie",component:MessagesComponent},
+  {path:"draganddrop",component:DraganddropComponent},
   {path:"incident",component:IncidentExampleComponent},
   {path:"table",component:TableComponent},
   {path:"cards",component:CardsComponent},

@@ -18,6 +18,7 @@ import { CardModule } from 'primeng/card';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
+import {CalendarModule} from 'primeng/calendar';
 @NgModule({
   declarations: [
     TableComponent,
@@ -39,7 +40,8 @@ import { NgChartsModule } from 'ng2-charts';
     ToastModule,
     CardModule,
     ReactiveFormsModule,
-    NgChartsModule
+    NgChartsModule,
+    CalendarModule
   ],
   providers:[MessageService,ConfirmationService]
 })

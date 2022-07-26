@@ -11,10 +11,7 @@
     overflow-x: hidden;
 }
 .draganddrop{
-   
-    
     background:white;
-
     border:1px dashed black;
     height:300px;
     width:300px;
@@ -89,8 +86,4 @@ td{
     vertical-align: middle;
     padding: 2px 5px 2px 5px;
 
-}
-td > * {
-    vertical-align : middle;
-    
 }

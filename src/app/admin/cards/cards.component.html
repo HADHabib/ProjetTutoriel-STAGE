@@ -1,20 +1,15 @@
-<div class="main" *ngFor="let data of datalist" >
-  <p-card class="card">
-      <ng-template pTemplate="header">
-        <div class="card-header flex align-items-center">
-          <span class="card-header-text">Card {{data}}</span>
-        </div>
-      </ng-template>
-      <ng-template pTemplate="content">
-        <canvas baseChart
-        [labels]="doughnutChartLabels"
-        [datasets]="doughnutChartDatasets"
-        [options]="doughnutChartOptions"
-        [legend]="true"
-        [type]="'doughnut'">
-</canvas>
+<div *ngIf="!started">
+  <button (click)='startTimer()'>Start Timer</button>
+</div>
+<div *ngIf="started">
+  <button (click)='pauseTimer()'>Stop Timer</button>
+</div>
 
-      </ng-template>
-  </p-card>
+<p>{{timeLeft}} Seconds Left.... {{timeLeft2}}</p>
 
+<div *ngIf="showDiv" [ngStyle]="{'margin-top': marginTop+'px','margin-left':marginLeft+'px'}">
+  <div class="circle1" (click)="onClick()"></div>
+</div>
+<div *ngIf="showDiv" [ngStyle]="{'margin-top': marginTop2+'px','margin-left':marginLeft2+'px'}">
+  <div class="circle1" (click)="onClick()"></div>
 </div>

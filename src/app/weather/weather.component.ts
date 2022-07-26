@@ -6,12 +6,12 @@ import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupErrorCityComponent } from '../popup-error-city/popup-error-city.component';
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css'],
+  selector: 'app-weather',
+  templateUrl: './weather.component.html',
+  styleUrls: ['./weather.component.css'],
   
 })
-export class HomepageComponent {
+export class WeatherComponent {
   WeatherData:any[]= [];
   message:string="";
   letters = '0123456789ABCDEF';

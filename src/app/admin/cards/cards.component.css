@@ -1,14 +1,30 @@
-.card{
-    min-width:300px;
-    min-height:300px;
+.card {
+    min-width: 300px;
+    min-height: 300px;
 
 }
-.main{
-    margin:20px;
-    float:left;
+
+.main {
+    margin: 20px;
+    float: left;
 
 }
-.main:hover{
-    border:2px solid black;
-    margin:18px;
+
+.main:hover {
+    border: 2px solid black;
+    margin: 18px;
+}
+
+.circle1 {
+    width: 15px;
+    height: 15px;
+    background: #4bc475;
+    border: 1px solid #000;
+    border-radius: 50%;
+}
+
+.circle1:hover {
+    cursor: pointer;
+    border: 2px solid #000;
+    background: #4bc4758a;
 }

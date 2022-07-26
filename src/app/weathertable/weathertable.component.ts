@@ -6,11 +6,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DataStorageService } from '../data-storage.service';
 import { DataSource } from '@angular/cdk/collections';
 @Component({
-  selector: 'app-page',
-  templateUrl: './page.component.html',
-  styleUrls: ['./page.component.css']
+  selector: 'app-weathertable',
+  templateUrl: './weathertable.component.html',
+  styleUrls: ['./weathertable.component.css']
 })
-export class PageComponent implements OnInit {
+export class WeathertableComponent implements OnInit {
   dataList:mockData[]=[]
   dataShow:mockData[]=[]
   dataSearch:mockData[]=[];

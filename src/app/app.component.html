@@ -1,27 +1,40 @@
-
 <div class="header">
   <ul class="nav justify-content-center">
-    <li class="nav-item"><a routerLink="/auth"><button class="buttonheaderRight btn btn-outline-secondary"><i class="bi bi-card-text"></i></button></a></li>
-    <li class="nav-item"><a routerLink="/table"><button class="buttonheaderRight btn btn-outline-secondary"><i class="bi bi-table"></i></button></a></li>
-    <li class="nav-item"><a routerLink="/reactiveform"><button class="buttonheaderLeft btn btn-outline-secondary">Form</button></a></li>
-    <li class="nav-item"><a routerLink="/page4"><button class="buttonheaderLeft btn btn-outline-secondary">V1</button></a></li>
-    <li class="nav-item"> <a routerLink="/page3"><button class="buttonheaderLeft btn btn-outline-secondary"> V2</button></a></li>
-    <li class="nav-item"><div>
-      <a [routerLink]="['/homepage',{outlets:{sidebarA:['homepagesidebar']}}]" routerLinkActive="active"><h1 class="textheader">Forecast</h1></a>
-      <a  routerLink="/datatable"><i style = "color:rgb(0, 0, 0) " class="bi bi-code"></i></a>
-    </div></li>
-    <li class="nav-item"> <a [routerLink]="['/page2',{outlets:{sidebarA:['page2sidebar']}}]" routerLinkActive="active"> <button class="buttonheaderRight btn btn-outline-secondary"><i class="bi bi-clipboard2"></i></button></a></li>
-    <li class="nav-item"> <a routerLink="/page"><button class="buttonheaderRight btn btn-outline-secondary"> <i class="bi bi-thermometer"></i></button></a></li>
-    <li class="nav-item"> <a routerLink="/currency"><button class="buttonheaderRight btn btn-outline-secondary"> <i class="bi bi-file-earmark-arrow-down"></i></button></a></li>
-    <li class="nav-item"><a routerLink="/incident"><button class="buttonheaderRight btn btn-outline-secondary"><i class="bi bi-exclamation-triangle"></i></button></a></li>
-    <li class="nav-item"><a routerLink="/admin"><button class="buttonheaderRight btn btn-outline-secondary"><i class="bi bi-card-text"></i></button></a></li>
+    <li class="nav-item"><a routerLink="/auth"><button class="buttonheaderRight btn btn-outline-secondary"><i
+            class="bi bi-card-text"></i></button></a></li>
+    <li class="nav-item"><a routerLink="/table"><button class="buttonheaderRight btn btn-outline-secondary"><i
+            class="bi bi-table"></i></button></a></li>
+    <li class="nav-item"><a routerLink="/reactiveform"><button
+          class="buttonheaderLeft btn btn-outline-secondary">Form</button></a></li>
+    <li class="nav-item"><a routerLink="/inputexampleV1"><button
+          class="buttonheaderLeft btn btn-outline-secondary">V1</button></a></li>
+    <li class="nav-item"> <a routerLink="/inputdataV2"><button class="buttonheaderLeft btn btn-outline-secondary">
+          V2</button></a></li>
+    <li class="nav-item">
+      <div>
+        <a [routerLink]="['/weather',{outlets:{sidebarA:['weathersidebar']}}]" routerLinkActive="active">
+          <h1 class="textheader">Forecast</h1>
+        </a>
+        <a routerLink="/messagerie"><i style="color:rgb(0, 0, 0) " class="bi bi-code"></i></a>
+      </div>
+    </li>
+    <li class="nav-item"> <a [routerLink]="['/todo',{outlets:{sidebarA:['todosidebar']}}]" routerLinkActive="active">
+        <button class="buttonheaderRight btn btn-outline-secondary"><i class="bi bi-clipboard2"></i></button></a></li>
+    <li class="nav-item"> <a routerLink="/weathertable"><button class="buttonheaderRight btn btn-outline-secondary"> <i
+            class="bi bi-thermometer"></i></button></a></li>
+    <li class="nav-item"> <a routerLink="/draganddrop"><button class="buttonheaderRight btn btn-outline-secondary"> <i
+            class="bi bi-file-earmark-arrow-down"></i></button></a></li>
+    <li class="nav-item"><a routerLink="/incident"><button class="buttonheaderRight btn btn-outline-secondary"><i
+            class="bi bi-exclamation-triangle"></i></button></a></li>
+    <li class="nav-item"><a routerLink="/admin"><button class="buttonheaderRight btn btn-outline-secondary"><i
+            class="bi bi-cursor-fill"></i></button></a></li>
   </ul>
-</div> 
+</div>
 <div id="sidebar">
   <router-outlet name="sidebarA"></router-outlet>
 </div>
 
-  <div id="main" >
-    <router-outlet></router-outlet>
+<div id="main">
+  <router-outlet></router-outlet>
 
-  </div>
+</div>

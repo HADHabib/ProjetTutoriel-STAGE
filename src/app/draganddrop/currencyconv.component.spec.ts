@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Page3Component } from './page3.component';
+import { DraganddropComponent } from './currencyconv.component';
 
-describe('Page3Component', () => {
-  let component: Page3Component;
-  let fixture: ComponentFixture<Page3Component>;
+describe('DraganddropComponent', () => {
+  let component: DraganddropComponent;
+  let fixture: ComponentFixture<DraganddropComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Page3Component ]
+      declarations: [ DraganddropComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Page3Component);
+    fixture = TestBed.createComponent(DraganddropComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,7 +3,7 @@ import { DataTableModel } from "./datatable.model";
 export const DataList:DataTableModel[]=[
     {
         type: 'Incident',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest: new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',
@@ -12,7 +12,7 @@ export const DataList:DataTableModel[]=[
         status: 'n.a'
     }, {
         type: 'Trading Account',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest:  new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',
@@ -21,7 +21,7 @@ export const DataList:DataTableModel[]=[
         status: 'Open'
     }, {
         type: 'Personal Transaction',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest:  new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',
@@ -30,7 +30,7 @@ export const DataList:DataTableModel[]=[
         status: 'n.a'
     }, {
         type: 'Outside Business Activity',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest:  new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',
@@ -39,7 +39,7 @@ export const DataList:DataTableModel[]=[
         status: 'n.a'
     }, {
         type: 'Political Contribution',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest:  new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',
@@ -48,7 +48,7 @@ export const DataList:DataTableModel[]=[
         status: 'n.a'
     }, {
         type: 'Restricted list and NDAs',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest:  new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',
@@ -57,7 +57,7 @@ export const DataList:DataTableModel[]=[
         status: 'Open'
     }, {
         type: 'Personal Transaction',
-        dateOfRequest: '2022/03/26',
+        dateOfRequest:  new Date,
         businessIssuer: 'John Doe',
         departement: 'FoF',
         office: 'Paris',

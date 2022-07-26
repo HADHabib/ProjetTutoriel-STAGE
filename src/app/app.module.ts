@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { Page2Component } from './page2/page2.component';
-import { PageComponent } from './page/page.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { Page3Component } from './page3/page3.component';
-import { Page2sidebarComponent } from './page2sidebar/page2sidebar.component';
+import { TodoComponent } from './todo/todo.component';
+import { WeathertableComponent } from './weathertable/weathertable.component';
+import { WeatherComponent } from './weather/weather.component';
+import { InputdataV2Component } from './inputdataV2/inputdataV2.component';
+import { TodosidebarComponent } from './todosidebar/todosidebar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { NgxPaginationModule } from 'ngx-pagination';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -18,22 +18,22 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar'; 
 import { WeathercomponentComponent } from './weathercomponent/weathercomponent.component';
 import { HighlightDirective } from './highlight.directive';
-import { HomepagesidebarComponent } from './homepagesidebar/homepagesidebar.component';
+import { WeathersiderbarComponent } from './weathersidebar/weathersidebar.component';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from "@angular/material/dialog"
 import { PopupAddWeatherComponent } from './popup-add-weather/popup-add-weather.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { PopupErrorCityComponent } from './popup-error-city/popup-error-city.component';
-import { InputDataComponent } from './page3/input-data/input-data.component';
+import { InputDataComponent } from './inputdataV2/input-data/input-data.component';
 import { InputExampleComponent } from './input-example/input-example.component';
 import { InputGenericComponent } from './input-example/input-generic/input-generic.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
-import { DataTableComponent } from './data-table/data-table.component';
+import { MessagesComponent } from './data-table/data-table.component';
 import { DataStorageService } from './data-storage.service';
 import { PopupMessagesComponent } from './data-table/popup-messages/popup-messages.component';
-import { CurrencyconvComponent } from './currencyconv/currencyconv.component';
+import { DraganddropComponent } from './draganddrop/currencyconv.component';
 import {MatIconModule} from '@angular/material/icon';
-import { DragdropfileDirective } from './currencyconv/dragdropfile.directive';
+import { DragdropfileDirective } from './draganddrop/dragdropfile.directive';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { IncidentExampleComponent } from './incident-example/incident-example.component';
 import { IncidentNumberComponent } from './incident-example/incident-number/incident-number.component';
@@ -42,26 +42,27 @@ import { ImagedirectiveDirective } from './incident-example/imagedirective.direc
 import { AdminModule } from './admin/admin.module';
 import { NgChartsModule } from 'ng2-charts';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    Page2Component,
-    PageComponent,
-    HomepageComponent,
-    Page3Component,
-    Page2sidebarComponent,
+    TodoComponent,
+    WeathertableComponent,
+    WeatherComponent,
+    InputdataV2Component,
+    TodosidebarComponent,
     WeathercomponentComponent,
     HighlightDirective,
-    HomepagesidebarComponent,
+    WeathersiderbarComponent,
     WeatherForecastComponent,
     PopupErrorCityComponent,
     InputDataComponent,
     InputExampleComponent,
     InputGenericComponent,
     ReactiveformComponent,
-    DataTableComponent,
+    MessagesComponent,
     PopupMessagesComponent,
-    CurrencyconvComponent,
+    DraganddropComponent,
     DragdropfileDirective,
     IncidentExampleComponent,
     IncidentNumberComponent,

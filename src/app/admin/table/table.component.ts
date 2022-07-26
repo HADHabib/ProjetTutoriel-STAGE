@@ -54,7 +54,7 @@ export class TableComponent implements OnInit {
   openNew() {
     this.data = {
       type:'',
-    dateOfRequest:'',
+    dateOfRequest:new Date,
     businessIssuer : '',
     departement : '',
     office : '',
@@ -92,7 +92,7 @@ export class TableComponent implements OnInit {
             this.datalist = this.datalist.filter(val => val !== data);
             this.data = {
               type:'',
-            dateOfRequest:'',
+            dateOfRequest:new Date,
             businessIssuer : '',
             departement : '',
             office : '',
@@ -130,7 +130,7 @@ export class TableComponent implements OnInit {
         this.dataDialog = false;
         this.data = {
           type:'',
-        dateOfRequest:'',
+        dateOfRequest:new Date,
         businessIssuer : '',
         departement : '',
         office : '',

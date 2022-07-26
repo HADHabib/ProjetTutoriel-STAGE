@@ -1,22 +1,22 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { retryWhen } from 'rxjs';
-import { Page2serviceService } from './page2service.service';
+import { TodoService } from './todoservice.service';
 import { toDo } from './todo';
 import { Subscription } from 'rxjs';
 import { SharedService } from '../shared.service';
 @Component({
-  selector: 'app-page2',
-  templateUrl: './page2.component.html',
-  styleUrls: ['./page2.component.css']
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css']
 })
 
 
-export class Page2Component implements OnInit {
+export class TodoComponent implements OnInit {
   clickEventsubscription:Subscription | undefined;
   todos:toDo[]=[];
   done = true;
   pages: number = 1;
-  constructor(private page2Service : Page2serviceService,private sharedService:SharedService) {
+  constructor(private TodoService : TodoService,private sharedService:SharedService) {
    
       this.clickEventsubscription=this.sharedService.getClickEvent().subscribe(()=>{
         this.add();
@@ -32,7 +32,7 @@ ngOnDestroy() {
  
   }
   getTodos():void{
-    this.page2Service.getTodos().subscribe(tods=>this.todos = tods);
+    this.TodoService.getTodos().subscribe(tods=>this.todos = tods);
     for(let listodos in this.todos){
       console.log(this.todos[listodos].id);
     }
@@ -41,7 +41,7 @@ ngOnDestroy() {
   add():void{
     let done = true;
     if(done){
-      this.page2Service.addTodo({} as toDo).subscribe(todo=>{todo.listetodo=[];this.todos.push(todo);});
+      this.TodoService.addTodo({} as toDo).subscribe(todo=>{todo.listetodo=[];this.todos.push(todo);});
       done=false;
     }
 
@@ -54,14 +54,14 @@ ngOnDestroy() {
         if(!this.todos[index].listetodo.find(element=> element==textToAdd && textToAdd!="")){
            this.todos[index].listetodo.push(textToAdd);
       
-           this.page2Service.updateTodo(this.todos[index]).subscribe();
+           this.TodoService.updateTodo(this.todos[index]).subscribe();
     }
   
 }
   removeTodo(toremove: toDo):void {
   
     this.todos = this.todos.filter(h => h !== toremove);
-    this.page2Service.deleteTodo(toremove.id).subscribe();
+    this.TodoService.deleteTodo(toremove.id).subscribe();
 
     
     

@@ -10,7 +10,7 @@ import { FileuploadService } from './fileupload.service';
   templateUrl: './currencyconv.component.html',
   styleUrls: ['./currencyconv.component.css']
 })
-export class CurrencyconvComponent implements OnInit {
+export class DraganddropComponent implements OnInit {
 
   uploadSub: Subscription = new Subscription;
   link: string = "";

@@ -10,26 +10,60 @@ import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 export class CardsComponent implements OnInit {
   ngOnInit(): void {
   }
-
-  datalist:number[]=[1,2,3,4,5,6]
-
-
-  public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
-  public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
-      { data: [ 350, 450, 100 ], label: 'Series A' },
-      { data: [ 50, 150, 120 ], label: 'Series B' },
-      { data: [ 250, 130, 70 ], label: 'Series C' }
-    ];
-  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
-    aspectRatio: 1,
-    responsive: true,
-    rotation: Math.PI / 2,
-    elements: {
-      arc: {
-        borderWidth: 0,
-      },
-    },
-  
-  };
-
+  showDiv:boolean=false;
+  timeLeft: number = 1;
+  timeLeft2:number=1;
+  interval:any;
+  started:boolean=false;
+  interval2:any;
+  marginTop:number=0;
+  marginLeft:number=0;
+  marginTop2:number=0;
+  marginLeft2:number=0;
+  count:number=0;
+startTimer() {
+  this.started=true;
+  this.intervalle1();
+  }
+intervalle1(){
+  this.interval = setInterval(() => {
+    if(this.timeLeft > 0) {
+      this.timeLeft--;
+    } else {
+      this.timeLeft = 1;
+      clearInterval(this.interval)
+      this.showDiv=true;
+      this.marginLeft=Math.random()*(900)
+      this.marginTop=Math.random()*(250)
+      this.marginLeft2=Math.random()*(900)
+      this.marginTop2=Math.random()*(250)
+      this.intervalle2()
+    }
+  },1000)
+}
+intervalle2(){
+  this.interval2 = setInterval(() => {
+    if(this.timeLeft2 > 0) {
+      
+      this.timeLeft2--;
+    } else {
+      this.showDiv=false;
+      this.timeLeft2 = 1;
+      clearInterval(this.interval2)
+      this.intervalle1()
+    }
+  },1000)
+}
+  pauseTimer() {
+    clearInterval(this.interval);
+    clearInterval(this.interval2)
+    this.timeLeft = 1;
+    this.timeLeft2=1;
+    this.started=false;
+    this.showDiv=false;
+  }
+  onClick(){
+    this.count+=1;
+    console.log(this.count)
+  }
 }

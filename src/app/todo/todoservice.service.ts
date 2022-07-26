@@ -6,7 +6,7 @@ import { toDo } from './todo';
 @Injectable({
   providedIn: 'root'
 })
-export class Page2serviceService {
+export class TodoService {
   private todoUrl = 'api/toDos';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

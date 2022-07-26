@@ -6,7 +6,7 @@ import { MessagestorageService } from './messagestorage.service';
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.css']
 })
-export class DataTableComponent implements OnInit {
+export class MessagesComponent implements OnInit {
   username:string | undefined;
   constructor(private MessageService : MessagestorageService) { }
   currentmsgs:any=['',''];
