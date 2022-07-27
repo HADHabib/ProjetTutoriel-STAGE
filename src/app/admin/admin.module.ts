@@ -19,13 +19,17 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { AdminComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
 import {CalendarModule} from 'primeng/calendar';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MenubarModule} from 'primeng/menubar';
+import {SpeedDialModule} from 'primeng/speeddial';
 @NgModule({
   declarations: [
     TableComponent,
     StatusIndicatorComponent,
     CardsComponent,
     AuthentificationComponent,
-    AdminComponent
+    AdminComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,9 @@ import {CalendarModule} from 'primeng/calendar';
     CardModule,
     ReactiveFormsModule,
     NgChartsModule,
-    CalendarModule
+    CalendarModule,
+    MenubarModule,
+    SpeedDialModule
   ],
   providers:[MessageService,ConfirmationService]
 })

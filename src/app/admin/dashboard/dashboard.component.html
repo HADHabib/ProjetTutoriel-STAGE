@@ -1,0 +1,17 @@
+<div class="main">
+    <div *ngFor="let data of datalist" class="card">
+        <div class="shadow-6 border-round border-double border-red-500" style="width: 25rem; margin: 30px;">
+            <p-card >
+                <p>Type : {{data.type}}</p>
+                <p>Date of request : {{data.dateOfRequest | date:'yyyy/MM/dd'}}</p>
+                <p>Business Issuer : {{data.businessIssuer}}</p>
+                <p>Department : {{data.departement}}</p>
+                <p>Office : {{data.office}}</p>
+                <p>Workflow :  <app-status-indicator [status]="data.workflow"></app-status-indicator></p>
+                <p>Remediation plan : {{data.remediationPlan}}</p>
+                <p>Status : {{data.status}}</p>
+            </p-card>
+        </div>
+       
+    </div>
+</div>

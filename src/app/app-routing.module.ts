@@ -17,9 +17,10 @@ import { CardsComponent } from './admin/cards/cards.component';
 import { AuthentificationComponent } from './admin/authentification/authentification.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { AuthentificationGuard } from './admin/authentification.guard';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/homepage/(sidebarA:homepagesidebar)', pathMatch: 'full' },
+  { path: '', redirectTo: '/weather/(sidebarA:weathersidebar)', pathMatch: 'full' },
   {path:"inputdataV2",component: InputdataV2Component},
   {path:"weathertable",component:WeathertableComponent},
   {path: "todo",children:[
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path:"table",component:TableComponent},
   {path:"cards",component:CardsComponent},
   {path:"auth",component:AuthentificationComponent},
-  {path:"admin",component:CardsComponent, canActivate:[AuthentificationGuard]}
+  {path:"admin",component:CardsComponent, canActivate:[AuthentificationGuard]},
+  {path:"dashboard",component:DashboardComponent, canActivate:[AuthentificationGuard]}
   
 ];
 @NgModule({
