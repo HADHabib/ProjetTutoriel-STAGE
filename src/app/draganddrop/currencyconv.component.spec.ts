@@ -8,9 +8,8 @@ describe('DraganddropComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DraganddropComponent ]
-    })
-    .compileComponents();
+      declarations: [DraganddropComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DraganddropComponent);
     component = fixture.componentInstance;

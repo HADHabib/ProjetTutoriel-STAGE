@@ -1,48 +1,51 @@
-#divWeatherMain{
-    padding: 10px;
-    margin:10px;
-    float:left;
-    display: block;
-    border-radius: 15px;
- 
+#divWeatherMain {
+  padding: 10px;
+  margin: 10px;
+  float: left;
+  display: block;
+  border-radius: 15px;
 
-    color: white;;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.weatherWidgetRow{
-    display:block;
-    margin:0 auto;
-    width: fit-content;
+.weatherWidgetRow {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
 }
 
-.sun{
-    margin-top: 10px;
-    color: yellow;
-    filter: drop-shadow( 1px 1px 10px yellow);
+.sun {
+  margin-top: 10px;
+  color: yellow;
+  filter: drop-shadow(1px 1px 10px yellow);
 }
 
-.moon{
-    margin-top: 10px;
-    color: white;
-    filter: drop-shadow( 1px 1px 10px white);
+.moon {
+  margin-top: 10px;
+  color: white;
+  filter: drop-shadow(1px 1px 10px white);
 }
 
-.cloudDiv{
-    margin-top: -40px;
+.cloudDiv {
+  margin-top: -40px;
 }
 
-.cloud{
-    color: rgb(104, 175, 197);
-    filter: drop-shadow( 1px 1px 5px rgb(104, 175, 197));
-    animation-name: cloudMovement;
-    animation-iteration-count: infinite;
-    animation-duration: 10s;
-    animation-timing-function: ease-in-out;
-    animation-direction: alternate;
+.cloud {
+  color: rgb(104, 175, 197);
+  filter: drop-shadow(1px 1px 5px rgb(104, 175, 197));
+  animation-name: cloudMovement;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 }
 
-@keyframes cloudMovement{
-    from{margin-left: -55px;}
-    to{margin-left: 65px;}
+@keyframes cloudMovement {
+  from {
+    margin-left: -55px;
+  }
+  to {
+    margin-left: 65px;
+  }
 }

@@ -1,14 +1,14 @@
-
 <div class="card shadow-6" *ngFor="let incident of listIncident">
-    <app-incident-number [incidentInput]="incident"></app-incident-number>
-    <div id="status">
-         <div [ngClass]="{'open':incident.status==='Open', 'closed':incident.status==='Closed'}">
-            {{incident.status}}
-        </div>
+  <app-incident-number [incidentInput]="incident"></app-incident-number>
+  <div id="status">
+    <div
+      [ngClass]="{
+        open: incident.status === 'Open',
+        closed: incident.status === 'Closed'
+      }"
+    >
+      {{ incident.status }}
     </div>
-    <app-incident-info [incidentInfo]="incident"></app-incident-info>
-
-    
+  </div>
+  <app-incident-info [incidentInfo]="incident"></app-incident-info>
 </div>
-
-

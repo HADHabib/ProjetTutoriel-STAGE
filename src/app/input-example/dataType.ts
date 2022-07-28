@@ -1,4 +1,4 @@
-export interface dataType{
-    label:string,
-    type:string
+export interface dataType {
+  label: string;
+  type: string;
 }

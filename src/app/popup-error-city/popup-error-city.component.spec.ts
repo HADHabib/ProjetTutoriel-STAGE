@@ -8,9 +8,8 @@ describe('PopupErrorCityComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopupErrorCityComponent ]
-    })
-    .compileComponents();
+      declarations: [PopupErrorCityComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PopupErrorCityComponent);
     component = fixture.componentInstance;

@@ -4,14 +4,12 @@ import { infoIncidentType } from '../info-incident.model';
 @Component({
   selector: 'app-incident-info',
   templateUrl: './incident-info.component.html',
-  styleUrls: ['./incident-info.component.css']
+  styleUrls: ['./incident-info.component.css'],
 })
 export class IncidentInfoComponent implements OnInit {
   @Input()
   incidentInfo!: infoIncidentType;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

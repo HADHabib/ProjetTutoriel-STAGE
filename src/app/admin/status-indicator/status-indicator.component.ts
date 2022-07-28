@@ -4,7 +4,7 @@ import { getColorByStatus } from '../color.function';
 @Component({
   selector: 'app-status-indicator',
   templateUrl: './status-indicator.component.html',
-  styleUrls: ['./status-indicator.component.scss']
+  styleUrls: ['./status-indicator.component.scss'],
 })
 export class StatusIndicatorComponent implements OnInit {
   public color: string = '#000';
@@ -28,10 +28,10 @@ export class StatusIndicatorComponent implements OnInit {
     'Remediation plan',
     'Rejected',
     'Removed',
-    'Expired'
+    'Expired',
   ];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.color = this.getColorStatus(this.status as string);

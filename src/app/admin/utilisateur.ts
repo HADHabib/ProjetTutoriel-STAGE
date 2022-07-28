@@ -1,5 +1,5 @@
-export  interface  utilisateur {
-    pseudo: string;
-    adressMail: string;
-    motPasse: string;
+export interface utilisateur {
+  pseudo: string;
+  adressMail: string;
+  motPasse: string;
 }

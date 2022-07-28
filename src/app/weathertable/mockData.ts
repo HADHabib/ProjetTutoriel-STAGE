@@ -1,6 +1,6 @@
-export interface mockData{
-    cityName:string,
-    temp:string,
-    feelslike:string,
-    humidity:number
+export interface mockData {
+  cityName: string;
+  temp: string;
+  feelslike: string;
+  humidity: number;
 }

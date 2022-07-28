@@ -1,10 +1,10 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "~bootstrap";
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-.mainAffi{
-  margin:20px;
+.mainAffi {
+  margin: 20px;
 }
-button#Buttons{
-  margin:20px;
+button#Buttons {
+  margin: 20px;
 }

@@ -8,12 +8,9 @@ import { DataTableModel } from '../table/datatable.model';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  datalist:DataTableModel[]=DataList;
-  ngOnInit(): void {
-  }
-  
+  datalist: DataTableModel[] = DataList;
+  ngOnInit(): void {}
 }
-

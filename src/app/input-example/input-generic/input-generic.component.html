@@ -1,5 +1,9 @@
-
 <span id="nameInput">
-    {{dataInput.label}}
+  {{ dataInput.label }}
 </span>
-<input class="input" type="{{dataInput.type}}" [(ngModel)]="modelInput" (ngModelChange)="sendUpdatedInput()"/>
+<input
+  class="input"
+  type="{{ dataInput.type }}"
+  [(ngModel)]="modelInput"
+  (ngModelChange)="sendUpdatedInput()"
+/>

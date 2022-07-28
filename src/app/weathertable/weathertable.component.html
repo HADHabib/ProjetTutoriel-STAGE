@@ -1,88 +1,211 @@
-<div >
-    <table style="background-color:white;">
-        <thead >
-           <td id="noborder" colspan="1">
-            Show 
-            <select (change)="selectChangeHandler($event)">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-            </select>
-            entries
-            
-            </td>
-            <td>
-                 <input (keyup.enter)="newCity(inputNewCity.value); inputNewCity.value='';" placeholder="Add a city" style="float:left; width: 80%;" type="text"
-                 #inputNewCity><button style="border: 0px;background:white; float:left;" (click)="newCity(inputNewCity.value); inputNewCity.value='';"><i class="bi bi-plus-circle"></i> </button>
-            </td> 
-           <td id="noborder" colspan="2" style="text-align: right;">Search : <input class="input" type="text" [(ngModel)]="search" (ngModelChange)="refreshSearch();this.pages=1;"/></td>
-        </thead>
-        <tbody>
-            <tr >
-                <td id="Header">Name 
-                    <ng-container *ngIf="sortN==='ascName'">
-                        <button [ngStyle]="{'background-color' : sort==='ascName' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='descName'; pages=1 ; sortN='descName'" ><i class="bi bi-caret-up-fill"></i></button>
-                    </ng-container>
-                    <ng-container *ngIf="sortN==='descName'">
-                        <button  [ngStyle]="{'background-color' : sort==='descName' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='ascName' ; pages=1; sortN='ascName'"><i class="bi bi-caret-down-fill"></i></button>
-                    </ng-container>
-                </td>
-                <td id="Header">Temp
-                    <ng-container *ngIf="sortT==='ascTemp'">
-                        <button [ngStyle]="{'background-color' : sort==='ascTemp' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='descTemp' ; pages=1; sortT='descTemp'" ><i class="bi bi-caret-up-fill"></i></button>
-                    </ng-container>
-                    <ng-container *ngIf="sortT==='descTemp'">
-                        <button [ngStyle]="{'background-color' : sort==='descTemp' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='ascTemp' ; pages=1; sortT='ascTemp'"><i class="bi bi-caret-down-fill"></i></button>
-                    </ng-container>
-                </td>
-                <td id="Header">Feels like
-                    <ng-container *ngIf="sortF==='ascFeels'">
-                        <button [ngStyle]="{'background-color' : sort==='ascFeels' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='descFeels'; pages=1; sortF='descFeels'" ><i class="bi bi-caret-up-fill"></i></button>
-                    </ng-container>
-                    <ng-container *ngIf="sortF==='descFeels'">
-                        <button [ngStyle]="{'background-color' : sort==='descFeels' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='ascFeels' ; pages=1; sortF='ascFeels'"><i class="bi bi-caret-down-fill"></i></button>
-                    </ng-container>
-                </td>
-                <td id="Header">Humidity
-                    <ng-container *ngIf="sortH==='ascHumidity'">
-                        <button [ngStyle]="{'background-color' : sort==='ascHumidity' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='descHumidity'; pages=1; sortH='descHumidity'" ><i class="bi bi-caret-up-fill"></i></button>
-                    </ng-container>
-                    <ng-container *ngIf="sortH==='descHumidity'">
-                        <button [ngStyle]="{'background-color' : sort==='descHumidity' ? 'grey' : 'lightgrey'}" style="float:right;" (click)="sort='ascHumidity' ; pages=1; sortH='ascHumidity'"><i class="bi bi-caret-down-fill"></i></button>
-                    </ng-container>
-                </td>
-            </tr>
-            <ng-container *ngIf="dataList.length===expectedEntries">
-
-                <tr [ngStyle]="{'background-color' : dataShow.indexOf(data)%2===0 ? 'rgb(245, 245, 245)' : 'rgb(220, 255, 255)'}" *ngFor="let data of dataShow ">
-                    <td>{{data.cityName}}</td>
-                    <td>{{data.temp}} °C</td>
-                    <td>{{data.feelslike}} °C</td>
-                    <td>{{data.humidity}} %</td>
-                </tr>
-            </ng-container>
-            <ng-container *ngIf="dataList.length!=expectedEntries">
-                <td colspan="4">
-                    <mat-progress-spinner style="margin: 0 auto;" color="primary" mode="indeterminate">></mat-progress-spinner>
-                </td>
-            </ng-container>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td id="Header">Name</td>
-                <td id="Header">Temp</td>
-                <td id="Header">Feels like</td>
-                <td id="Header">Humidity</td>
-            </tr>
-            <tr>
-            <td id="noborder" colspan="2">Showing {{dataSearch.length!=0 ? (pages-1)*numberEntries + 1 : 0}} to {{pages*numberEntries<= dataSearch.length ? pages*numberEntries : dataSearch.length }} of {{dataSearch.length}} entries</td>
-            <td id="noborder" colspan="2" style="text-align: right;"> 
-                <button [disabled]="pages === 1" (click)="changePage(pages-1)">Previous</button>
-                <button  [ngStyle]="{'background-color' : page===this.pages ? 'blue' : 'lightgrey'}" *ngFor="let page of listPages" (click)="changePage(page)" >{{page}}</button>
-                <button [disabled]="pages === listPages.length" (click)="changePage(pages+1)">Next</button>
-            </td>
+<div>
+  <table style="background-color: white">
+    <thead>
+      <td id="noborder" colspan="1">
+        Show
+        <select (change)="selectChangeHandler($event)">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+        </select>
+        entries
+      </td>
+      <td>
+        <input
+          (keyup.enter)="newCity(inputNewCity.value); inputNewCity.value = ''"
+          placeholder="Add a city"
+          style="float: left; width: 80%"
+          type="text"
+          #inputNewCity
+        /><button
+          style="border: 0px; background: white; float: left"
+          (click)="newCity(inputNewCity.value); inputNewCity.value = ''"
+        >
+          <i class="bi bi-plus-circle"></i>
+        </button>
+      </td>
+      <td id="noborder" colspan="2" style="text-align: right">
+        Search :
+        <input
+          class="input"
+          type="text"
+          [(ngModel)]="search"
+          (ngModelChange)="refreshSearch(); this.pages = 1"
+        />
+      </td>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="Header">
+          Name
+          <ng-container *ngIf="sortN === 'ascName'">
+            <button
+              [ngStyle]="{
+                'background-color': sort === 'ascName' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'descName'; pages = 1; sortN = 'descName'"
+            >
+              <i class="bi bi-caret-up-fill"></i>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="sortN === 'descName'">
+            <button
+              [ngStyle]="{
+                'background-color': sort === 'descName' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'ascName'; pages = 1; sortN = 'ascName'"
+            >
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+          </ng-container>
+        </td>
+        <td id="Header">
+          Temp
+          <ng-container *ngIf="sortT === 'ascTemp'">
+            <button
+              [ngStyle]="{
+                'background-color': sort === 'ascTemp' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'descTemp'; pages = 1; sortT = 'descTemp'"
+            >
+              <i class="bi bi-caret-up-fill"></i>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="sortT === 'descTemp'">
+            <button
+              [ngStyle]="{
+                'background-color': sort === 'descTemp' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'ascTemp'; pages = 1; sortT = 'ascTemp'"
+            >
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+          </ng-container>
+        </td>
+        <td id="Header">
+          Feels like
+          <ng-container *ngIf="sortF === 'ascFeels'">
+            <button
+              [ngStyle]="{
+                'background-color': sort === 'ascFeels' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'descFeels'; pages = 1; sortF = 'descFeels'"
+            >
+              <i class="bi bi-caret-up-fill"></i>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="sortF === 'descFeels'">
+            <button
+              [ngStyle]="{
+                'background-color': sort === 'descFeels' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'ascFeels'; pages = 1; sortF = 'ascFeels'"
+            >
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+          </ng-container>
+        </td>
+        <td id="Header">
+          Humidity
+          <ng-container *ngIf="sortH === 'ascHumidity'">
+            <button
+              [ngStyle]="{
+                'background-color':
+                  sort === 'ascHumidity' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'descHumidity'; pages = 1; sortH = 'descHumidity'"
+            >
+              <i class="bi bi-caret-up-fill"></i>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="sortH === 'descHumidity'">
+            <button
+              [ngStyle]="{
+                'background-color':
+                  sort === 'descHumidity' ? 'grey' : 'lightgrey'
+              }"
+              style="float: right"
+              (click)="sort = 'ascHumidity'; pages = 1; sortH = 'ascHumidity'"
+            >
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+          </ng-container>
+        </td>
+      </tr>
+      <ng-container *ngIf="dataList.length === expectedEntries">
+        <tr
+          [ngStyle]="{
+            'background-color':
+              dataShow.indexOf(data) % 2 === 0
+                ? 'rgb(245, 245, 245)'
+                : 'rgb(220, 255, 255)'
+          }"
+          *ngFor="let data of dataShow"
+        >
+          <td>{{ data.cityName }}</td>
+          <td>{{ data.temp }} °C</td>
+          <td>{{ data.feelslike }} °C</td>
+          <td>{{ data.humidity }} %</td>
         </tr>
-        </tfoot>
-    </table>
+      </ng-container>
+      <ng-container *ngIf="dataList.length != expectedEntries">
+        <td colspan="4">
+          <mat-progress-spinner
+            style="margin: 0 auto"
+            color="primary"
+            mode="indeterminate"
+            >></mat-progress-spinner
+          >
+        </td>
+      </ng-container>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td id="Header">Name</td>
+        <td id="Header">Temp</td>
+        <td id="Header">Feels like</td>
+        <td id="Header">Humidity</td>
+      </tr>
+      <tr>
+        <td id="noborder" colspan="2">
+          Showing
+          {{ dataSearch.length != 0 ? (pages - 1) * numberEntries + 1 : 0 }} to
+          {{
+            pages * numberEntries <= dataSearch.length
+              ? pages * numberEntries
+              : dataSearch.length
+          }}
+          of {{ dataSearch.length }} entries
+        </td>
+        <td id="noborder" colspan="2" style="text-align: right">
+          <button [disabled]="pages === 1" (click)="changePage(pages - 1)">
+            Previous
+          </button>
+          <button
+            [ngStyle]="{
+              'background-color': page === this.pages ? 'blue' : 'lightgrey'
+            }"
+            *ngFor="let page of listPages"
+            (click)="changePage(page)"
+          >
+            {{ page }}
+          </button>
+          <button
+            [disabled]="pages === listPages.length"
+            (click)="changePage(pages + 1)"
+          >
+            Next
+          </button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>

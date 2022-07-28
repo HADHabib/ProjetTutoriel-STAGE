@@ -1,5 +1,5 @@
-export interface dataType{
-    label:string,
-    type:string,
-    value:any
+export interface dataType {
+  label: string;
+  type: string;
+  value: any;
 }

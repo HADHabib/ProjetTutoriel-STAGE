@@ -8,9 +8,8 @@ describe('TodosidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodosidebarComponent ]
-    })
-    .compileComponents();
+      declarations: [TodosidebarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TodosidebarComponent);
     component = fixture.componentInstance;

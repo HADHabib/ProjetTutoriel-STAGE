@@ -1,133 +1,267 @@
 <div>
-    <p-toolbar styleClass="p-mb-4">
-        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
-            (click)="openNew(); newData=true;"></button>
-    </p-toolbar>
-    <p-table [columns]="cols" [value]="datalist" class="tablemain" sortMode="multiple" [paginator]="true" [rows]="10"
-        [showCurrentPageReport]="true" responsiveLayout="scroll"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" selectionMode="single"
-        [rowsPerPageOptions]="[10,25,50]" #dt>
-        <ng-template pTemplate="caption">
-            <div class="p-d-flex">
-
-                <span class="p-input-icon-left p-ml-auto">
-                    <i class="pi pi-search"></i>
-                    <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
-                        placeholder="Search ..." #inputText />
-                </span>
-                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
-                    (click)="clear(dt); inputText.value='';this.selectedType=''"></button>
-                <p-dropdown [options]="types" [showClear]="true" (onChange)="setfilters()" [(ngModel)]="selectedType"
-                    placeholder="All" class="dropdown" #dropdownType></p-dropdown>
-
-
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header" let-columns>
-            <tr>
-                <th pSortableColumn={{col.field}} *ngFor="let col of columns">
-                    {{col.header.toUpperCase()}}<p-sortIcon field="{{col.field}}"></p-sortIcon>
-                </th>
-                <th>
-                    ACTIONS
-                </th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-            <tr [pSelectableRow]="columns" (dblclick)="editProduct(rowData,datalist.indexOf(rowData))">
-                <td *ngFor="let col of columns">
-                    <ng-container *ngIf="col.header==='Workflow';else showColStatus">
-                        <app-status-indicator [status]="rowData[col.field]"></app-status-indicator>
-                    </ng-container>
-                    <ng-template #showColStatus>
-                        <ng-container *ngIf="col.header==='Status'; else showColDate">
-                            <span [ngClass]="{
-                                'green':rowData[col.field]==='Open',
-                                'red':rowData[col.field]==='Closed'
-                            }">{{rowData[col.field]}}</span>
-                        </ng-container>
-                    </ng-template>
-                    <ng-template #showColDate>
-                        <ng-container *ngIf="col.header==='Date of request'; else showCol">
-                            {{rowData[col.field] | date:'yyyy/MM/dd'}}
-                        </ng-container>
-                    </ng-template>
-                    <ng-template #showCol>
-                        {{rowData[col.field]}}
-                    </ng-template>
-                </td>
-                <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2 margin"
-                        (click)="editProduct(rowData,datalist.indexOf(rowData))"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning margin"
-                        (click)="deleteProduct(rowData)"></button>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+  <p-toolbar styleClass="p-mb-4">
+    <button
+      pButton
+      pRipple
+      label="New"
+      icon="pi pi-plus"
+      class="p-button-success p-mr-2"
+      (click)="openNew(); newData = true"
+    ></button>
+  </p-toolbar>
+  <p-table
+    [columns]="cols"
+    [value]="datalist"
+    class="tablemain"
+    sortMode="multiple"
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    responsiveLayout="scroll"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    selectionMode="single"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    #dt
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <span class="p-input-icon-left p-ml-auto">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="applyFilterGlobal($event, 'contains')"
+            placeholder="Search ..."
+            #inputText
+          />
+        </span>
+        <button
+          pButton
+          label="Clear"
+          class="p-button-outlined"
+          icon="pi pi-filter-slash"
+          (click)="clear(dt); inputText.value = ''; this.selectedType = ''"
+        ></button>
+        <p-dropdown
+          [options]="types"
+          [showClear]="true"
+          (onChange)="setfilters()"
+          [(ngModel)]="selectedType"
+          placeholder="All"
+          class="dropdown"
+          #dropdownType
+        ></p-dropdown>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th pSortableColumn="{{ col.field }}" *ngFor="let col of columns">
+          {{ col.header.toUpperCase()
+          }}<p-sortIcon field="{{ col.field }}"></p-sortIcon>
+        </th>
+        <th>ACTIONS</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr
+        [pSelectableRow]="columns"
+        (dblclick)="editProduct(rowData, datalist.indexOf(rowData))"
+      >
+        <td *ngFor="let col of columns">
+          <ng-container *ngIf="col.header === 'Workflow'; else showColStatus">
+            <app-status-indicator
+              [status]="rowData[col.field]"
+            ></app-status-indicator>
+          </ng-container>
+          <ng-template #showColStatus>
+            <ng-container *ngIf="col.header === 'Status'; else showColDate">
+              <span
+                [ngClass]="{
+                  green: rowData[col.field] === 'Open',
+                  red: rowData[col.field] === 'Closed'
+                }"
+                >{{ rowData[col.field] }}</span
+              >
+            </ng-container>
+          </ng-template>
+          <ng-template #showColDate>
+            <ng-container
+              *ngIf="col.header === 'Date of request'; else showCol"
+            >
+              {{ rowData[col.field] | date: "yyyy/MM/dd" }}
+            </ng-container>
+          </ng-template>
+          <ng-template #showCol>
+            {{ rowData[col.field] }}
+          </ng-template>
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success p-mr-2 margin"
+            (click)="editProduct(rowData, datalist.indexOf(rowData))"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning margin"
+            (click)="deleteProduct(rowData)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
 
-<p-dialog [(visible)]="dataDialog" [contentStyle]="{'overflow':'visible'}" [style]="{width: '900px'}"
-    styleClass="p-fluid" header="Request Details" [modal]="true">
-    <ng-template pTemplate="content">
-        <div class="p-field p-col">
-            <label>Type</label>
-            <p-dropdown appendTo="body" [required]="true" [options]="types" [showClear]="true" [(ngModel)]="data.type"
-                placeholder="Choose a type" class="dropdown" #dropdownDialogType></p-dropdown>
-        </div>
-        <div class="p-formgrid p-grid">
-            <div class="p-field p-col">
-                <label for="date">Date of request</label>
-                <p-calendar id="date" dateFormat="yy/mm/dd" [(ngModel)]="data.dateOfRequest" [required]="true"
-                    autofocus></p-calendar>
-                <small class="p-invalid" *ngIf="submitted && !data.dateOfRequest">Date is required.</small>
-            </div>
-            <div class="p-field p-col">
-                <label for="businessIssuer">Business issuer</label>
-                <input type="text" pInputText id="businessIssuer" [(ngModel)]="data.businessIssuer" required
-                    autofocus />
-                <small class="p-invalid" *ngIf="submitted && !data.businessIssuer">Business issuer is required.</small>
-            </div>
-            <div class="p-field p-col">
-                <label for="department">Department</label>
-                <input type="text" pInputText id="department" [(ngModel)]="data.departement" required autofocus />
-                <small class="p-invalid" *ngIf="submitted && !data.departement">Department is required.</small>
-            </div>
-            <div class="p-field p-col">
-                <label for="office">Office</label>
-                <input type="text" pInputText id="office" [(ngModel)]="data.office" required autofocus />
-                <small class="p-invalid" *ngIf="submitted && !data.office">Office is required.</small>
-            </div>
-        </div>
-        <div class="p-field p-col">
-            <label for="office">Workflow</label>
-            <p-dropdown appendTo="body" [required]="true" [options]="workflowlist" [showClear]="true"
-                [(ngModel)]="data.workflow" placeholder="Choose a workflow" class="dropdown" #dropdownDialogWorkflow>
-            </p-dropdown>
-        </div>
-        <div class="p-field p-col">
-            <label for="office">Remediation plan</label>
-            <p-dropdown appendTo="body" [required]="true" [options]="['Yes','No']" [showClear]="true"
-                [(ngModel)]="data.remediationPlan" placeholder="Choose remediation plan" class="dropdown"
-                #dropdownDialogRPlan></p-dropdown>
-        </div>
-        <div class="p-field p-col">
-            <label for="office">Status</label>
-            <p-dropdown appendTo="body" [required]="true" [options]="['Open','Closed','n.a']" [showClear]="true"
-                [(ngModel)]="data.status" placeholder="Choose status" class="dropdown" #dropdownDialogStatus>
-            </p-dropdown>
-        </div>
+<p-dialog
+  [(visible)]="dataDialog"
+  [contentStyle]="{ overflow: 'visible' }"
+  [style]="{ width: '900px' }"
+  styleClass="p-fluid"
+  header="Request Details"
+  [modal]="true"
+>
+  <ng-template pTemplate="content">
+    <div class="p-field p-col">
+      <label>Type</label>
+      <p-dropdown
+        appendTo="body"
+        [required]="true"
+        [options]="types"
+        [showClear]="true"
+        [(ngModel)]="data.type"
+        placeholder="Choose a type"
+        class="dropdown"
+        #dropdownDialogType
+      ></p-dropdown>
+    </div>
+    <div class="p-formgrid p-grid">
+      <div class="p-field p-col">
+        <label for="date">Date of request</label>
+        <p-calendar
+          id="date"
+          dateFormat="yy/mm/dd"
+          [(ngModel)]="data.dateOfRequest"
+          [required]="true"
+          autofocus
+        ></p-calendar>
+        <small class="p-invalid" *ngIf="submitted && !data.dateOfRequest"
+          >Date is required.</small
+        >
+      </div>
+      <div class="p-field p-col">
+        <label for="businessIssuer">Business issuer</label>
+        <input
+          type="text"
+          pInputText
+          id="businessIssuer"
+          [(ngModel)]="data.businessIssuer"
+          required
+          autofocus
+        />
+        <small class="p-invalid" *ngIf="submitted && !data.businessIssuer"
+          >Business issuer is required.</small
+        >
+      </div>
+      <div class="p-field p-col">
+        <label for="department">Department</label>
+        <input
+          type="text"
+          pInputText
+          id="department"
+          [(ngModel)]="data.departement"
+          required
+          autofocus
+        />
+        <small class="p-invalid" *ngIf="submitted && !data.departement"
+          >Department is required.</small
+        >
+      </div>
+      <div class="p-field p-col">
+        <label for="office">Office</label>
+        <input
+          type="text"
+          pInputText
+          id="office"
+          [(ngModel)]="data.office"
+          required
+          autofocus
+        />
+        <small class="p-invalid" *ngIf="submitted && !data.office"
+          >Office is required.</small
+        >
+      </div>
+    </div>
+    <div class="p-field p-col">
+      <label for="office">Workflow</label>
+      <p-dropdown
+        appendTo="body"
+        [required]="true"
+        [options]="workflowlist"
+        [showClear]="true"
+        [(ngModel)]="data.workflow"
+        placeholder="Choose a workflow"
+        class="dropdown"
+        #dropdownDialogWorkflow
+      >
+      </p-dropdown>
+    </div>
+    <div class="p-field p-col">
+      <label for="office">Remediation plan</label>
+      <p-dropdown
+        appendTo="body"
+        [required]="true"
+        [options]="['Yes', 'No']"
+        [showClear]="true"
+        [(ngModel)]="data.remediationPlan"
+        placeholder="Choose remediation plan"
+        class="dropdown"
+        #dropdownDialogRPlan
+      ></p-dropdown>
+    </div>
+    <div class="p-field p-col">
+      <label for="office">Status</label>
+      <p-dropdown
+        appendTo="body"
+        [required]="true"
+        [options]="['Open', 'Closed', 'n.a']"
+        [showClear]="true"
+        [(ngModel)]="data.status"
+        placeholder="Choose status"
+        class="dropdown"
+        #dropdownDialogStatus
+      >
+      </p-dropdown>
+    </div>
+  </ng-template>
 
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text redBg"
-            (click)="hideDialog()"></button>
-        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text greenBg"
-            (click)="saveProduct()"></button>
-    </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancel"
+      icon="pi pi-times"
+      class="p-button-text redBg"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Save"
+      icon="pi pi-check"
+      class="p-button-text greenBg"
+      (click)="saveProduct()"
+    ></button>
+  </ng-template>
 </p-dialog>
 
-<p-confirmDialog [style]="{width: '450px'}" [acceptButtonStyleClass]="'greenBg'" #cd></p-confirmDialog>
+<p-confirmDialog
+  [style]="{ width: '450px' }"
+  [acceptButtonStyleClass]="'greenBg'"
+  #cd
+></p-confirmDialog>
 
 <p-toast></p-toast>

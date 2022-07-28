@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { TableComponent } from './table/table.component';
 import { StatusIndicatorComponent } from './status-indicator/status-indicator.component';
-import {TableModule} from 'primeng/table';
-import {ButtonModule} from 'primeng/button';
-import {InputTextModule} from 'primeng/inputtext';
-import {DropdownModule} from 'primeng/dropdown';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {ToolbarModule} from 'primeng/toolbar';
+import { ToolbarModule } from 'primeng/toolbar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
-import {DialogModule} from 'primeng/dialog';
-import {ToastModule} from 'primeng/toast';
+import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 import { CardsComponent } from './cards/cards.component';
 import { CardModule } from 'primeng/card';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgChartsModule } from 'ng2-charts';
-import {CalendarModule} from 'primeng/calendar';
+import { CalendarModule } from 'primeng/calendar';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {MenubarModule} from 'primeng/menubar';
-import {SpeedDialModule} from 'primeng/speeddial';
+import { MenubarModule } from 'primeng/menubar';
+import { SpeedDialModule } from 'primeng/speeddial';
 @NgModule({
   declarations: [
     TableComponent,
@@ -29,7 +29,7 @@ import {SpeedDialModule} from 'primeng/speeddial';
     CardsComponent,
     AuthentificationComponent,
     AdminComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -47,8 +47,8 @@ import {SpeedDialModule} from 'primeng/speeddial';
     NgChartsModule,
     CalendarModule,
     MenubarModule,
-    SpeedDialModule
+    SpeedDialModule,
   ],
-  providers:[MessageService,ConfirmationService]
+  providers: [MessageService, ConfirmationService, DatePipe],
 })
-export class AdminModule { }
+export class AdminModule {}

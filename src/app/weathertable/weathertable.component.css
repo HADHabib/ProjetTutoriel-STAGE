@@ -1,23 +1,21 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "~bootstrap";
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-table{
-  margin:0 auto;
-  margin-top:10px;
-  border:1px solid #333 ;
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+table {
+  margin: 0 auto;
+  margin-top: 10px;
+  border: 1px solid #333;
   border-collapse: collapse;
 }
-td{
+td {
   margin: 20px;
-  padding:5px;
-
+  padding: 5px;
 }
-td#noborder{
-  border:0px;
-  width:300px
+td#noborder {
+  border: 0px;
+  width: 300px;
 }
 
-td#Header{
+td#Header {
   font-weight: bold;
- 
 }

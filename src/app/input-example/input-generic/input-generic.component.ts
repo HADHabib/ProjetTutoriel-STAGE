@@ -3,18 +3,16 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-input-generic',
   templateUrl: './input-generic.component.html',
-  styleUrls: ['./input-generic.component.css']
+  styleUrls: ['./input-generic.component.css'],
 })
 export class InputGenericComponent implements OnInit {
-  modelInput:any;
+  modelInput: any;
   @Input() dataInput: any | undefined;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  sendUpdatedInput(): void {
+    console.log(this.modelInput);
   }
-  sendUpdatedInput():void{
-    console.log(this.modelInput)
-  }
-
 }

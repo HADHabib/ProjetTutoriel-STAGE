@@ -1,38 +1,83 @@
-<div style=" height: 250px;  
-overflow-y: scroll;   display: flex;
-  flex-direction: column-reverse; border: 2px solid black; background-color: whitesmoke;">
-    <table style=" width:100%; ">
+<div
+  style="
+    height: 250px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column-reverse;
+    border: 2px solid black;
+    background-color: whitesmoke;
+  "
+>
+  <table style="width: 100%">
+    <ng-container *ngIf="GetMsgs().length === 0">
+      <tr style="text-align: center">
+        No messages yet.<br />
+        Say Hi first !
+      </tr>
+    </ng-container>
+    <ng-container *ngFor="let msgs of GetMsgs()">
+      <ng-container *ngIf="msgs[0] === DataUser">
+        <tr class="msgs">
+          <div
+            style="
+              float: right;
+              display: flex;
+              justify-content: space-between;
+              word-break: break-all;
+            "
+          >
+            <span
+              style="
+                margin: 10px;
+                background: rgb(207, 249, 255);
+                border-radius: 15px;
+                padding: 5px;
+                border: 2px solid black;
+              "
+              >{{ msgs[1] }}
+            </span>
+            <div class="circle">
+              {{ DataUser.substring(0, 1).toUpperCase() }}
+            </div>
+          </div>
+        </tr>
+      </ng-container>
+      <ng-container *ngIf="msgs[0] === DataFriend[0]">
+        <tr class="msgs">
+          <div
+            style="
+              float: left;
+              display: flex;
+              justify-content: space-between;
+              word-break: break-all;
+            "
+          >
+            <div class="circle">
+              {{ DataFriend[0].substring(0, 1).toUpperCase() }}
+            </div>
+            <span
+              style="
+                margin: 10px;
+                background: rgb(207, 249, 255);
+                border-radius: 10px;
+                padding: 5px;
+                border: 2px solid black;
+              "
+            >
+              {{ msgs[1] }}</span
+            >
+          </div>
+        </tr>
+      </ng-container>
+    </ng-container>
 
-        <ng-container *ngIf="GetMsgs().length===0" >
-            <tr style="text-align:center;">No messages yet.<br>
-                Say Hi first !</tr>
-            
-        </ng-container>
-        <ng-container *ngFor="let msgs of GetMsgs()" >
-            <ng-container *ngIf="msgs[0]===DataUser">
-                <tr class="msgs">
-                
-                    <div  style="float:right;   display: flex;
-                    justify-content: space-between ;  word-break: break-all;">
-                        <span style=" margin:10px; background:rgb(207, 249, 255); border-radius:15px; padding:5px; border: 2px solid black;
-                    " >{{msgs[1]}} </span><div  class="circle"> {{DataUser.substring(0,1).toUpperCase()}}</div> 
-                    </div>
-                </tr>
-                
-            </ng-container>
-            <ng-container *ngIf="msgs[0]===DataFriend[0]">
-                <tr class="msgs" >
-                    <div  style="float:left;   display: flex;
-                    justify-content: space-between;word-break: break-all;">
-                        <div  class="circle">{{DataFriend[0].substring(0,1).toUpperCase()}}</div> <span style="margin:10px; background:rgb(207, 249, 255); border-radius:10px;
-                        padding:5px; border: 2px solid black;" > {{msgs[1]}}</span>
-                    </div>
-                </tr>
-                
-            </ng-container>
-
-        </ng-container>
-
-        <input style="width: 99%; border-radius:5px "(keyup.enter)="AddMsgs(MsgAdd.value); MsgAdd.value=''" placeholder="Send a message" class="textzone" type="text"  #MsgAdd> 
-    </table>
+    <input
+      style="width: 99%; border-radius: 5px"
+      (keyup.enter)="AddMsgs(MsgAdd.value); MsgAdd.value = ''"
+      placeholder="Send a message"
+      class="textzone"
+      type="text"
+      #MsgAdd
+    />
+  </table>
 </div>

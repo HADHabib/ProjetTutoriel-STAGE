@@ -1,8 +1,12 @@
 <div *ngFor="let dataInput of inputs">
-    <div id = "main">
-        <span id="nameInput">
-            {{dataInput.label}}
-        </span>
-        <app-input-data class="Inputdata" [typeInput]="dataInput.type"  (newInputValue)="updateValue(inputs.indexOf(dataInput),$event)"></app-input-data>  
-    </div>
+  <div id="main">
+    <span id="nameInput">
+      {{ dataInput.label }}
+    </span>
+    <app-input-data
+      class="Inputdata"
+      [typeInput]="dataInput.type"
+      (newInputValue)="updateValue(inputs.indexOf(dataInput), $event)"
+    ></app-input-data>
+  </div>
 </div>

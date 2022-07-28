@@ -4,25 +4,22 @@ import { MessagestorageService } from '../messagestorage.service';
 @Component({
   selector: 'app-popup-messages',
   templateUrl: './popup-messages.component.html',
-  styleUrls: ['./popup-messages.component.css']
+  styleUrls: ['./popup-messages.component.css'],
 })
 export class PopupMessagesComponent implements OnInit {
   @Input() DataFriend: any;
   @Input() DataUser: any;
-  constructor(private MessageService: MessagestorageService) { }
+  constructor(private MessageService: MessagestorageService) {}
 
-  ngOnInit(): void {
-  }
-  GetMsgs(){
-    if(this.MessageService.getMsgs(this.DataFriend[1]).length===undefined){
+  ngOnInit(): void {}
+  GetMsgs() {
+    if (this.MessageService.getMsgs(this.DataFriend[1]).length === undefined) {
       return [];
-    }else{
-
+    } else {
       return this.MessageService.getMsgs(this.DataFriend[1]);
     }
-   
   }
-  AddMsgs(msg:string){
-    this.MessageService.addMsg(this.DataFriend[1],[this.DataUser,msg]);
+  AddMsgs(msg: string) {
+    this.MessageService.addMsg(this.DataFriend[1], [this.DataUser, msg]);
   }
 }

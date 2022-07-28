@@ -20,31 +20,56 @@ import { AuthentificationGuard } from './admin/authentification.guard';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/weather/(sidebarA:weathersidebar)', pathMatch: 'full' },
-  {path:"inputdataV2",component: InputdataV2Component},
-  {path:"weathertable",component:WeathertableComponent},
-  {path: "todo",children:[
-    { path: '', component:TodoComponent },
-    {path:"todosidebar",component:TodosidebarComponent, outlet:"sidebarA"}
-  ]},
-  {path: "weather",children:[
-    { path: '', component:WeatherComponent },
-    {path:"weathersidebar",component:WeathersiderbarComponent, outlet:"sidebarA"}
-  ]},
-  {path:"inputexampleV1",component:InputExampleComponent},
-  {path:"reactiveform",component:ReactiveformComponent},
-  {path:"messagerie",component:MessagesComponent},
-  {path:"draganddrop",component:DraganddropComponent},
-  {path:"incident",component:IncidentExampleComponent},
-  {path:"table",component:TableComponent},
-  {path:"cards",component:CardsComponent},
-  {path:"auth",component:AuthentificationComponent},
-  {path:"admin",component:CardsComponent, canActivate:[AuthentificationGuard]},
-  {path:"dashboard",component:DashboardComponent, canActivate:[AuthentificationGuard]}
-  
+  {
+    path: '',
+    redirectTo: '/weather/(sidebarA:weathersidebar)',
+    pathMatch: 'full',
+  },
+  { path: 'inputdataV2', component: InputdataV2Component },
+  { path: 'weathertable', component: WeathertableComponent },
+  {
+    path: 'todo',
+    children: [
+      { path: '', component: TodoComponent },
+      {
+        path: 'todosidebar',
+        component: TodosidebarComponent,
+        outlet: 'sidebarA',
+      },
+    ],
+  },
+  {
+    path: 'weather',
+    children: [
+      { path: '', component: WeatherComponent },
+      {
+        path: 'weathersidebar',
+        component: WeathersiderbarComponent,
+        outlet: 'sidebarA',
+      },
+    ],
+  },
+  { path: 'inputexampleV1', component: InputExampleComponent },
+  { path: 'reactiveform', component: ReactiveformComponent },
+  { path: 'messagerie', component: MessagesComponent },
+  { path: 'draganddrop', component: DraganddropComponent },
+  { path: 'incident', component: IncidentExampleComponent },
+  { path: 'table', component: TableComponent },
+  { path: 'cards', component: CardsComponent },
+  { path: 'auth', component: AuthentificationComponent },
+  {
+    path: 'admin',
+    component: CardsComponent,
+    canActivate: [AuthentificationGuard],
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthentificationGuard],
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

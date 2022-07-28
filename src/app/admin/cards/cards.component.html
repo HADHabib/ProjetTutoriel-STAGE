@@ -1,15 +1,27 @@
 <div *ngIf="!started">
-  <button (click)='startTimer()'>Start Timer</button>
+  <button (click)="startTimer()">Start Timer</button>
 </div>
 <div *ngIf="started">
-  <button (click)='pauseTimer()'>Stop Timer</button>
+  <button (click)="pauseTimer()">Stop Timer</button>
 </div>
 
-<p>{{timeLeft}} Seconds Left.... {{timeLeft2}}</p>
+<p>{{ timeLeft }} Seconds Left.... {{ timeLeft2 }}</p>
 
-<div *ngIf="showDiv" [ngStyle]="{'margin-top': marginTop+'px','margin-left':marginLeft+'px'}">
+<div
+  *ngIf="showDiv"
+  [ngStyle]="{
+    'margin-top': marginTop + 'px',
+    'margin-left': marginLeft + 'px'
+  }"
+>
   <div class="circle1" (click)="onClick()"></div>
 </div>
-<div *ngIf="showDiv" [ngStyle]="{'margin-top': marginTop2+'px','margin-left':marginLeft2+'px'}">
+<div
+  *ngIf="showDiv"
+  [ngStyle]="{
+    'margin-top': marginTop2 + 'px',
+    'margin-left': marginLeft2 + 'px'
+  }"
+>
   <div class="circle1" (click)="onClick()"></div>
 </div>

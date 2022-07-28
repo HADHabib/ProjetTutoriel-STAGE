@@ -4,18 +4,14 @@ import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-todosidebar',
   templateUrl: './todosidebar.component.html',
-  styleUrls: ['./todosidebar.component.css']
+  styleUrls: ['./todosidebar.component.css'],
 })
-
 export class TodosidebarComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
-  constructor(private sharedService:SharedService) { }
+  constructor(private sharedService: SharedService) {}
 
-  ngOnInit(): void {
-
-  }
-  onClickAdd(){
+  ngOnInit(): void {}
+  onClickAdd() {
     this.sharedService.sendClickEvent();
   }
-
 }

@@ -1,4 +1,4 @@
-export interface toDo{
-    listetodo : string[];
-    id : number;
+export interface toDo {
+  listetodo: string[];
+  id: number;
 }

@@ -1,26 +1,22 @@
-.main{
-
-    background:white;
-    width:340px;
-    min-height:250px;
+.main {
+  background: white;
+  width: 340px;
+  min-height: 250px;
 }
-.side{
-    vertical-align: top;
-
-
+.side {
+  vertical-align: top;
 }
-.inside{
-        background:white;
-         padding:15px;
-    
+.inside {
+  background: white;
+  padding: 15px;
 }
 
-span#header{
-    color:rgb(119, 173, 218);
-    font-weight: bold;
-    font-size:15px;
+span#header {
+  color: rgb(119, 173, 218);
+  font-weight: bold;
+  font-size: 15px;
 }
-span#info{
-    font-size: 14px;
-    margin-left:5px;
+span#info {
+  font-size: 14px;
+  margin-left: 5px;
 }

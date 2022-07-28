@@ -4,13 +4,11 @@ import { dataList } from './list-dataType';
 @Component({
   selector: 'app-input-example',
   templateUrl: './input-example.component.html',
-  styleUrls: ['./input-example.component.css']
+  styleUrls: ['./input-example.component.css'],
 })
 export class InputExampleComponent implements OnInit {
-  inputs: dataType[]= dataList;
-  constructor() { }
+  inputs: dataType[] = dataList;
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
