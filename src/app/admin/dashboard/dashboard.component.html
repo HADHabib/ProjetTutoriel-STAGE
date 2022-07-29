@@ -1,20 +1,36 @@
 <div class="main">
-    <div *ngFor="let data of datalist" class="card">
-        <div class="shadow-6 border-round border-double border-red-500" style="width: 25rem; margin: 30px;">
-            <p-card styleClass="pcard">
-                <p><span>Type : </span>{{data.type}}</p>
-                <p><span>Date of request : </span>{{data.dateOfRequest | date:'yyyy/MM/dd'}}</p>
-                <p><span>Business Issuer : </span>{{data.businessIssuer}}</p>
-                <p><span>Department : </span>{{data.departement}}</p>
-                <p><span>Office : </span>{{data.office}}</p>
-                <p><span>Workflow : </span><app-status-indicator [status]="data.workflow"></app-status-indicator></p>
-                <p><span>Remediation plan : </span>{{data.remediationPlan}}</p>
-                <p><span>Status : </span><span  [ngClass]="{
-                    green: data.status === 'Open',
-                    red: data.status === 'Closed'
-                  }">{{data.status}}</span></p>
-            </p-card>
-        </div>
-       
+  <div *ngFor="let data of datalist" class="card">
+    <div
+      class="shadow-6 border-round border-double border-red-500"
+      style="width: 25rem; margin: 30px"
+    >
+      <p-card styleClass="pcard">
+        <p><span>Type : </span>{{ data.type }}</p>
+        <p>
+          <span>Date of request : </span
+          >{{ data.dateOfRequest | date: "yyyy/MM/dd" }}
+        </p>
+        <p><span>Business Issuer : </span>{{ data.businessIssuer }}</p>
+        <p><span>Department : </span>{{ data.departement }}</p>
+        <p><span>Office : </span>{{ data.office }}</p>
+        <p>
+          <span>Workflow : </span
+          ><app-status-indicator
+            [status]="data.workflow"
+          ></app-status-indicator>
+        </p>
+        <p><span>Remediation plan : </span>{{ data.remediationPlan }}</p>
+        <p>
+          <span>Status : </span
+          ><span
+            [ngClass]="{
+              green: data.status === 'Open',
+              red: data.status === 'Closed'
+            }"
+            >{{ data.status }}</span
+          >
+        </p>
+      </p-card>
     </div>
+  </div>
 </div>

@@ -6,27 +6,26 @@ import { commentslist } from './commentlist';
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
 })
 export class CommentsComponent implements OnInit {
   cols: any[] = [];
-  datalist: CommentModel[]=commentslist;
+  datalist: CommentModel[] = commentslist;
   data!: CommentModel;
   @ViewChild('dt')
   dt!: Table;
-  currentfilter:string="All";
-  constructor() { }
+  currentfilter: string = 'All';
+  constructor() {}
 
   ngOnInit(): void {
     this.cols = [
       { field: 'date', header: 'Date' },
       { field: 'where', header: 'Where' },
-      { field: 'comment', header: 'Comment' }
+      { field: 'comment', header: 'Comment' },
     ];
   }
-  newFilter(newfilter:string){
-    this.currentfilter=newfilter;
+  newFilter(newfilter: string) {
+    this.currentfilter = newfilter;
     this.dt.filter(this.currentfilter, 'where', 'equals');
   }
-
 }

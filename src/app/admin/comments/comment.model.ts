@@ -1,5 +1,5 @@
-export interface CommentModel{
-    date: Date,
-    where: string,
-    comment : string
-} 
+export interface CommentModel {
+  date: Date;
+  where: string;
+  comment: string;
+}

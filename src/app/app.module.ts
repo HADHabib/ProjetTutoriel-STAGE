@@ -47,7 +47,6 @@ import { NgChartsModule } from 'ng2-charts';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +72,6 @@ import { InMemoryDataService } from './in-memory-data.service';
     IncidentNumberComponent,
     IncidentInfoComponent,
     ImagedirectiveDirective,
-    
   ],
 
   entryComponents: [PopupAddWeatherComponent],
@@ -99,7 +97,6 @@ import { InMemoryDataService } from './in-memory-data.service';
     DragDropModule,
     AdminModule,
     NgChartsModule,
-    
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },

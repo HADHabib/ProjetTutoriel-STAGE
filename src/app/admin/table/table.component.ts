@@ -10,7 +10,7 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
   datalist: DataTableModel[] = DataList;
@@ -25,7 +25,11 @@ export class TableComponent implements OnInit {
   workflowlist: string[] = workflowList;
   newData: boolean = false;
   indexUpdate: number = 0;
-  constructor(private messageService: MessageService, private confirmationService: ConfirmationService, public datepipe: DatePipe) {
+  constructor(
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    public datepipe: DatePipe
+  ) {
     this.types = [
       'Incident',
       'Trading Account',
@@ -33,13 +37,12 @@ export class TableComponent implements OnInit {
       'Outside Business Activity',
       'Political Contribution',
       'Restricted list and NDAs',
-    ]
+    ];
     this.types.sort();
     workflowList.sort();
   }
 
   ngOnInit(): void {
-
     this.cols = [
       { field: 'type', header: 'Type' },
       { field: 'dateOfRequest', header: 'Date of request' },
@@ -49,14 +52,13 @@ export class TableComponent implements OnInit {
       { field: 'workflow', header: 'Workflow' },
       { field: 'remediationPlan', header: 'Remediation plan' },
       { field: 'status', header: 'Status' },
-
     ];
   }
 
   openNew() {
     this.data = {
       type: '',
-      dateOfRequest: new Date,
+      dateOfRequest: new Date(),
       businessIssuer: '',
       departement: '',
       office: '',
@@ -87,14 +89,19 @@ export class TableComponent implements OnInit {
   }
   deleteProduct(data: DataTableModel) {
     this.confirmationService.confirm({
-      message: 'Are you sure you want to delete the request ' + data.type + ' of ' + this.datepipe.transform(data.dateOfRequest, 'yyyy/MM/dd') + '?',
+      message:
+        'Are you sure you want to delete the request ' +
+        data.type +
+        ' of ' +
+        this.datepipe.transform(data.dateOfRequest, 'yyyy/MM/dd') +
+        '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.datalist = this.datalist.filter(val => val !== data);
+        this.datalist = this.datalist.filter((val) => val !== data);
         this.data = {
           type: '',
-          dateOfRequest: new Date,
+          dateOfRequest: new Date(),
           businessIssuer: '',
           departement: '',
           office: '',
@@ -102,9 +109,13 @@ export class TableComponent implements OnInit {
           remediationPlan: '',
           status: '',
         };
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Request Deleted', life: 3000 });
-      }
-
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Request Deleted',
+          life: 3000,
+        });
+      },
     });
   }
 
@@ -113,18 +124,27 @@ export class TableComponent implements OnInit {
     let exist = true;
     for (let key of Object.values(this.data)) {
       if (!key) {
-        exist = false
+        exist = false;
       }
     }
     if (exist) {
       if (!this.newData) {
         this.datalist[this.indexUpdate] = this.data;
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Request Updated', life: 3000 });
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Request Updated',
+          life: 3000,
+        });
         this.indexUpdate = 0;
-      }
-      else {
+      } else {
         this.datalist.push(this.data);
-        this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Request Created', life: 3000 });
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: 'Request Created',
+          life: 3000,
+        });
         this.newData = false;
       }
 
@@ -132,7 +152,7 @@ export class TableComponent implements OnInit {
       this.dataDialog = false;
       this.data = {
         type: '',
-        dateOfRequest: new Date,
+        dateOfRequest: new Date(),
         businessIssuer: '',
         departement: '',
         office: '',
@@ -154,5 +174,3 @@ export class TableComponent implements OnInit {
     return index;
   }
 }
-
-

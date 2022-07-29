@@ -59,8 +59,8 @@ import { CommentsFilterComponent } from './comments-filter/comments-filter.compo
     SpeedDialModule,
     AvatarModule,
     TabMenuModule,
-    SelectButtonModule,
+    SelectButtonModule
   ],
   providers: [MessageService, ConfirmationService, DatePipe],
 })
-export class AdminModule {}
+export class AdminModule { }

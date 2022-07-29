@@ -70,14 +70,14 @@ const routes: Routes = [
     canActivate: [AuthentificationGuard],
   },
   {
-    path:'profile',
-    component:ProfileComponent,
-    children:[
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
       {
-        path:'comments',
-        component:CommentsComponent
-      }
-    ]
+        path: 'comments',
+        component: CommentsComponent,
+      },
+    ],
   },
 ];
 @NgModule({
