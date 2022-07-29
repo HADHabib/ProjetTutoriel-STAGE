@@ -1,7 +1,6 @@
 import { Injectable, ɵisBoundToModule } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
-import { Observable } from 'rxjs';
-import { toDo } from './page2/todo';
+import { toDo } from './todo/todo';
 @Injectable({
   providedIn: 'root',
 })

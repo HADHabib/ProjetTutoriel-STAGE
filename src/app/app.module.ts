@@ -44,6 +44,9 @@ import { IncidentInfoComponent } from './incident-example/incident-info/incident
 import { ImagedirectiveDirective } from './incident-example/imagedirective.directive';
 import { AdminModule } from './admin/admin.module';
 import { NgChartsModule } from 'ng2-charts';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 
 @NgModule({
   declarations: [
@@ -70,6 +73,7 @@ import { NgChartsModule } from 'ng2-charts';
     IncidentNumberComponent,
     IncidentInfoComponent,
     ImagedirectiveDirective,
+    
   ],
 
   entryComponents: [PopupAddWeatherComponent],
@@ -77,8 +81,8 @@ import { NgChartsModule } from 'ng2-charts';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
+    //HttpClientInMemoryWebApiModule.forRoot(
+    //  InMemoryDataService, { dataEncapsulation: false }
     // ),
     FormsModule,
     NgxPaginationModule,
@@ -95,6 +99,7 @@ import { NgChartsModule } from 'ng2-charts';
     DragDropModule,
     AdminModule,
     NgChartsModule,
+    
   ],
   providers: [
     { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } },

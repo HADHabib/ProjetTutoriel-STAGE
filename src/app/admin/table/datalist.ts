@@ -9,7 +9,7 @@ export const DataList: DataTableModel[] = [
     office: 'Paris',
     workflow: 'Pending user',
     remediationPlan: 'Yes',
-    status: 'n.a',
+    status: 'Closed',
   },
   {
     type: 'Trading Account',

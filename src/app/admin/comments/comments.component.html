@@ -1,0 +1,38 @@
+<div>
+    <p-table [paginator]="true" [rows]="10" responsiveLayout="scroll" sortMode="multiple" [columns]="cols"
+        [value]="datalist" #dt>
+        <ng-template pTemplate="caption">
+            <div class="flex justify-content-between flex-wrap">
+
+                <span style="float:left;">
+                    {{datalist.length}} <span class="text-red-500 font-bold test-lg uppercase">
+                        personal comments
+                    </span>
+                </span>
+    
+                <span style="float:right;  margin: 0 10px 0 10px;">
+                    <app-comments-filter (newInputValue)="newFilter($event)"></app-comments-filter>
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th pSortableColumn="{{ col.field }}" *ngFor="let col of columns">
+                    {{ col.header.toUpperCase()
+                    }}<p-sortIcon field="{{ col.field }}"></p-sortIcon>
+                </th>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="columns">
+                <td *ngFor="let col of columns">
+                    <ng-container *ngIf="col.header === 'Date'; else showCol">
+                        {{ rowData[col.field] | date: "yyyy/MM/dd" }}
+                    </ng-container>
+                    <ng-template #showCol>
+                        {{ rowData[col.field] }}
+                    </ng-template>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

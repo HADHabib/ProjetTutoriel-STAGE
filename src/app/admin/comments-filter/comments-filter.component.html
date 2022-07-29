@@ -1,0 +1,12 @@
+<div class="main">
+    <div style="float:left; margin-right:10px;">
+        DECLARATION TYPE
+    </div>
+   <div style="float:right;">
+    <p-selectButton [options]="justifyOptions" (onChange)="sendUpdatedFilter()" [(ngModel)]="currentfilter" optionLabel="icon" optionValue="value">
+        <ng-template let-item>
+            <i [class]="item.icon"></i>
+        </ng-template>
+    </p-selectButton>
+    </div>
+</div>

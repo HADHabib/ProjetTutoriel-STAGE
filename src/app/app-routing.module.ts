@@ -18,6 +18,8 @@ import { AuthentificationComponent } from './admin/authentification/authentifica
 import { AdminComponent } from './admin/admin/admin.component';
 import { AuthentificationGuard } from './admin/authentification.guard';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { ProfileComponent } from './admin/profile/profile.component';
+import { CommentsComponent } from './admin/comments/comments.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,16 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthentificationGuard],
+  },
+  {
+    path:'profile',
+    component:ProfileComponent,
+    children:[
+      {
+        path:'comments',
+        component:CommentsComponent
+      }
+    ]
   },
 ];
 @NgModule({
