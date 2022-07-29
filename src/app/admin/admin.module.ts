@@ -23,9 +23,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MenubarModule } from 'primeng/menubar';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ProfileComponent } from './profile/profile.component';
-import {TabMenuModule} from 'primeng/tabmenu';
-import {SelectButtonModule} from 'primeng/selectbutton';
-import {AvatarModule} from 'primeng/avatar';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { AvatarModule } from 'primeng/avatar';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentsFilterComponent } from './comments-filter/comments-filter.component';
 @NgModule({
@@ -59,7 +59,7 @@ import { CommentsFilterComponent } from './comments-filter/comments-filter.compo
     SpeedDialModule,
     AvatarModule,
     TabMenuModule,
-    SelectButtonModule
+    SelectButtonModule,
   ],
   providers: [MessageService, ConfirmationService, DatePipe],
 })
